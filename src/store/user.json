@@ -1,0 +1,15 @@
+{
+    "loggedin" : false,
+    "name" : "Davide",
+    "surname" : "Torresan",
+    "email" : "davidetoresan15@gmail.com",
+    "password" : "u726yNRgN57M",
+    "callsign" : "ROY28D",
+    "abilitations" : [
+        {
+            "code"  : "",
+            "model" : "",
+            "flightHours" : ""
+        }
+    ]
+}

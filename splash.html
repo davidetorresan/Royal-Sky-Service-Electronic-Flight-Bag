@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300,700&display=swap');
+            *{
+                margin: 0;padding: 0; box-sizing: border-box;font-family: 'Poppins', sans-serif;
+            }
+            .flex{
+                width: 96%;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                bottom: 15px;
+                left: 15px;
+            }
+            .small{
+                color: #fff;
+            }
+            .bg{
+                background-attachment: fixed; 
+                background-size: cover;
+                background-position: center bottom;
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                height: 500px;
+                width: 800px;
+                border-radius: 10px;
+                position: relative;
+            }
+            .splash{
+                width: 500px;
+                height: fit-content;
+                padding: 40px 0;
+                background-color: #ffffff61;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+                border-radius: 10px;
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+            }
+            .splash:before {
+                content: "";
+                position: absolute;
+                background: inherit;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+                filter: blur(10px);
+                margin: -20px;
+            }
+            .splash img{
+                width: 30%;
+            }
+            .splash h3{
+                font-size: 45px;
+                font-weight: 300;
+            }
+            .splash h4{
+                margin-top: 20px;
+                font-size: 25px;
+                font-weight: 100;
+                color: whitesmoke;
+            }
+            .dot-pulse {
+                position: relative;
+                margin-top: 20px;
+                left: -9999px;
+                width: 10px;
+                height: 10px;
+                border-radius: 5px;
+                background-color: #dfa310;
+                color: #dfa310;
+                box-shadow: 9999px 0 0 -5px #dfa310;
+                animation: dotPulse 1.5s infinite linear;
+                animation-delay: .25s;
+            }
+
+            .dot-pulse::before, .dot-pulse::after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                width: 10px;
+                height: 10px;
+                border-radius: 5px;
+                background-color: #dfa310;
+                color: #dfa310;
+            }
+
+            .dot-pulse::before {
+                box-shadow: 9984px 0 0 -5px #dfa310;
+                animation: dotPulseBefore 1.5s infinite linear;
+                animation-delay: 0s;
+            }
+
+            .dot-pulse::after {
+                box-shadow: 10014px 0 0 -5px #dfa310;
+                animation: dotPulseAfter 1.5s infinite linear;
+                animation-delay: .5s;
+            }
+
+            @keyframes dotPulseBefore {
+                0% {
+                    box-shadow: 9984px 0 0 -5px #dfa310;
+                }
+                30% {
+                    box-shadow: 9984px 0 0 2px #dfa310;
+                }
+                60%,
+                100% {
+                    box-shadow: 9984px 0 0 -5px #dfa310;
+                }
+            }
+
+            @keyframes dotPulse {
+                0% {
+                    box-shadow: 9999px 0 0 -5px #dfa310;
+                }
+                30% {
+                    box-shadow: 9999px 0 0 2px #dfa310;
+                }
+                60%,
+                100% {
+                    box-shadow: 9999px 0 0 -5px #dfa310;
+                }
+            }
+
+            @keyframes dotPulseAfter {
+                0% {
+                    box-shadow: 10014px 0 0 -5px #dfa310;
+                }
+                30% {
+                    box-shadow: 10014px 0 0 2px #dfa310;
+                }
+                60%,
+                100% {
+                    box-shadow: 10014px 0 0 -5px #dfa310;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="bg">
+            <img src="./assets/bg.png" alt="" style="position: absolute;top: 0;left: 0;border-radius: 10px;height: 100%;width: 100%;object-fit: cover;">
+            <div class="splash">
+                <img src="./assets/logo-v2.png" alt="">
+                <h3><b>Royal Sky Service</b></h3>
+                <h4>Electronic Flight Bag</h4>
+                <div class="snippet" data-title=".dot-pulse">
+                    <div class="stage">
+                        <div class="dot-pulse"></div>
+                    </div>
+                </div>
+                <span id="datas"></span>
+            </div>
+            <div class="flex">
+                <small class="small">&copy; 2022 Royal Sky Service&trade;</small>
+                <small class="small">Powered by Torresan Studio&trade;</small>
+            </div>
+        </div>
+    </body>
+</html>
