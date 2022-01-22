@@ -6,10 +6,10 @@
 
     function createWindow() {
         const mainWindow = new BrowserWindow({
-            width: 1300,
+            width: 1400,
             height: 900,
             minHeight: 800,
-            minWidth: 1100,
+            minWidth: 1400,
             webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
@@ -22,7 +22,9 @@
             ? 'http://localhost:3000'
             : `file://${path.join(__dirname, '../dist/index.html')}`
         );
-
+        
+        //mainWindow.removeMenu()
+        
         const splash = new BrowserWindow({
             width: 800,
             height: 500,

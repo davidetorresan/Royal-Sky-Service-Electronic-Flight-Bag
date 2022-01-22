@@ -27,7 +27,8 @@ app.mount('#app')
 
 const location = {
   latitude: '45.445',
-  longitude: '9.277'
+  longitude: '9.277',
+  icao: 'LIMF'
 }
 
 localStorage.setItem('location', JSON.stringify(location))

@@ -14,3 +14,9 @@ export const booking = {
         suggestedRoute: 'LIMG SID LAGEN Q712 VOG M858 CANNE Z651 MANEG L613 HOC G4 RLP B3 BILGO H20 XORBI H40 ABB N20 KUNAV STAR EGKK' 
     }
 };
+
+export const user = {
+    callsign: 'ROY28D',
+    firstname: 'Davide',
+    lastname: 'Torresan'
+}

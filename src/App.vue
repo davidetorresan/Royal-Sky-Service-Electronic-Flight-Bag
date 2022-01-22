@@ -1,6 +1,8 @@
 <template>
-  <NavBar />
-  <router-view />
+  <div id="app" class="relative antialiased bg-gray-100">
+    <NavBar />
+    <router-view />
+  </div>
 </template>
 <script>
   import NavBar from './components/NavBar.vue'
@@ -16,11 +18,22 @@
   }
 </script>
 <style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+  /* width */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c79314; 
+    border-radius: 10px;
+  }
+  .router-link-active{
+    color: rgb(25, 31, 41)!important;
   }
 </style>
