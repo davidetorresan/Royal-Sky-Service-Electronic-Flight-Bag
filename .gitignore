@@ -34,6 +34,8 @@ build/Release
 
 # Dependency directories
 node_modules/
+dist/
+dist_electron/
 jspm_packages/
 dist/
 dist_electron/
