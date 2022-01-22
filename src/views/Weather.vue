@@ -87,7 +87,7 @@
                 </div>
                 {{saved != '' ? saved : ''}}
             </div>
-            <div class="w-full m-y-10 p-6 rounded-2xl bg-white flex flex-col justify-center items-center text-white relative">
+            <div class="w-full mt-10 mb-10 p-6 rounded-2xl bg-white flex flex-col justify-center items-center text-white relative">
                 <p class="text-xs text-black">Powered by <b>Royal Sky Service Weather System&trade;</b></p>
             </div>
         </div>
