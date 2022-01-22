@@ -11,7 +11,7 @@
                 <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>
         </ul>
     </div>-->
-    <nav class="p-4 md:py-8 xl:px-0 md:container md:mx-w-6xl md:mx-auto sticky top-0 bg-gray-100">
+    <nav class="p-4 md:py-8 xl:px-0 md:container md:mx-w-6xl md:mx-auto sticky top-0 bg-gray-100 z-20">
         <div class="hidden lg:flex lg:justify-between lg:items-center">
             <a href="#" class="flex items-start gap-2 group">
                 <div class="bg-white text-white p-2 rounded-md">
