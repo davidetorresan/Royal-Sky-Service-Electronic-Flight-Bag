@@ -14,7 +14,7 @@ export default defineConfig({
         nested: resolve(__dirname, 'splash.html'),
         royal: resolve(__dirname, 'assets/logo-v2.png'),
         backgoround: resolve(__dirname, 'assets/bg.png'),
-        heart: resolve(__dirname, 'assets/svg.png'),
+        heart: resolve(__dirname, 'assets/heart.svg'),
       }
     }
   }

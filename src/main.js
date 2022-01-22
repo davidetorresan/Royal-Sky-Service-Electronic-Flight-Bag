@@ -8,7 +8,7 @@ import './index.css'
 
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'https://gabbyblog.herokuapp.com/';
+axios.defaults.baseURL = 'https://royalskyservice.it/';
 
 /*
 new Vue({

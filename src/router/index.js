@@ -4,6 +4,8 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Missions from '../views/Missions.vue'
 import Weather from '../views/Weather.vue'
+import Planning from '../views/Planning.vue'
+import Book from '../views/Book.vue'
 
 const routes = [
   {
@@ -20,6 +22,16 @@ const routes = [
     path: '/missions',
     name: 'Missions',
     component: Missions
+  },
+  {
+    path: '/book',
+    name: 'Book',
+    component: Book
+  },
+  {
+    path: '/planning',
+    name: 'Planning',
+    component: Planning
   },
   {
     path: '/login',

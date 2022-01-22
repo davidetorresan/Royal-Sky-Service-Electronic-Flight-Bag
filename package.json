@@ -1,7 +1,7 @@
 {
   "name": "royal-tools",
-  "author": "BroJenuel",
-  "version": "0.0.0",
+  "author": "Torresan Studio™",
+  "version": "0.0.1",
   "main": "electron/electron.js",
   "scripts": {
     "dev": "vite",
@@ -27,11 +27,15 @@
     "wait-on": "^6.0.0"
   },
   "build": {
-    "appId": "com.my-website.my-app",
-    "productName": "MyApp",
-    "copyright": "Copyright © 2019 ${author}",
+    "appId": "com.royalskyservice.efb",
+    "productName": "ROY Electronic Flight Bag",
+    "copyright": "Copyright © 2021 Royal Sky Service",
     "mac": {
+      "icon": "assets/icon.icns",
       "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "assets/icon.png"
     },
     "nsis": {
       "oneClick": false,
@@ -39,7 +43,8 @@
     },
     "files": [
       "dist/**/*",
-      "electron/**/*"
+      "electron/**/*",
+      "assets/**/*"
     ],
     "directories": {
       "buildResources": "assets",

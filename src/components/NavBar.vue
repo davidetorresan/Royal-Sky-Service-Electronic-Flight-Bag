@@ -2,8 +2,8 @@
     <div id="nav" class="w-full bg-yellow-500 flex justify-end items-center ">
         <ul class="flex justify-between w-9/12 lg:w-6/12">
             <li><router-link to="/">Home</router-link></li>
-            <li v-if="!data.booked"><router-link to="/missions">Prenotazione</router-link></li>
-            <li v-if="data.booked"><router-link to="/missions">Pianificazione</router-link></li>
+            <li v-if="!data.booked"><router-link to="/book">Prenotazione</router-link></li>
+            <li v-if="data.booked"><router-link to="/planning">Pianificazione</router-link></li>
             <li><router-link to="/weather">Meteo</router-link></li>
             <li><router-link to="/missions">Missioni<span class="nMission">10</span></router-link></li>
             <!--

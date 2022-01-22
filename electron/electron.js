@@ -14,7 +14,7 @@
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
             },
-            show: false
+            show: false,
         });
 
         mainWindow.loadURL(
