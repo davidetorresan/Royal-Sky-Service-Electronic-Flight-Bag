@@ -24,7 +24,7 @@
     },
     methods:{
       async getUser(){
-        let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=37`)
+        let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=82`)
         this.user = response.data
         this.hours = this.user.transfered_hours + this.user.gva_hours
         localStorage.setItem('user', JSON.stringify(this.user))
