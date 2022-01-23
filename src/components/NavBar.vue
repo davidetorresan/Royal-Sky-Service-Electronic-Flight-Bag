@@ -166,25 +166,21 @@
 </template>
 <script>
     import { booking } from '../store/test/test'
-    import axios from 'axios'
     export default {
         name: 'NavBar',
         data(){
             return {
                 data: booking,
                 open: false,
-                user: {}
+                user: JSON.parse(localStorage.getItem('user')),
+                //hours : 0
             }
         },
         computed : {
             //isLoggedIn : function(){ return this.$store.getters.ciao },
         },
         mounted(){
-            if(localStorage.getItem('user') != '' || localStorage.getItem('user')){
-                this.user = JSON.parse(localStorage.getItem('user'))
-            }else{
-                this.getUser()
-            }
+            
         },
         created(){
             this.$router.push('/')
@@ -194,11 +190,7 @@
                 await this.$store.dispatch('LogOut')
                 this.$router.push('/login')
             },
-            async getUser(){
-                let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=37`)
-                this.user = response.data
-                localStorage.setItem('user', JSON.stringify(this.user))
-            }
+            
         },
     }
 </script>

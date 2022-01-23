@@ -6,15 +6,31 @@
 </template>
 <script>
   import NavBar from './components/NavBar.vue'
+  import axios from 'axios'
   export default {
     components: {
       NavBar
     },
     data(){
       return{
-        login : false
+        login : false,
+        hours : null
       }
     },
+    created(){
+      if(localStorage.getItem('user') == '' || !localStorage.getItem('user')){
+        this.getUser()
+      }
+    },
+    methods:{
+      async getUser(){
+        let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=37`)
+        this.user = response.data
+        this.hours = this.user.transfered_hours + this.user.gva_hours
+        localStorage.setItem('user', JSON.stringify(this.user))
+        localStorage.setItem('hours', JSON.stringify(this.hours))
+      }
+    }
   }
 </script>
 <style>

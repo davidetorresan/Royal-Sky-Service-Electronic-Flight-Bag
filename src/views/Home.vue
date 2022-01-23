@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <h2 class="text-lg md:text-xl xl:text-3xl text-gray-700 font-black tracking-wider">
-                            {{user.gva_hours}}
+                            {{hours}}
                             <span class="md:text-xl">h</span>
                         </h2>
                     </div>
@@ -38,15 +38,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-[#c79314] to-[#875808] flex flex-col justify-between">
-                <div class="flex flex-col">
+            <div class="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-[#c79314] to-[#875808] flex flex-col justify-between relative">
+                <img v-if="!this.status" class="opacity-20 w-[250px] absolute top-[55%] -translate-x-[52%] -translate-y-[50%] left-[50%]" src="../../assets/logo-v2.png" alt="">
+                <div class="flex w-full flex-col items-center justify-center absolute top-[50%] -translate-x-[50%] -translate-y-[50%] left-[50%]" v-if="!this.status">
+                    <p class="text-white font-bold text-md uppercase">Non riceverai missioni fino a che non ti renderai disponibile :)</p>
+                </div>
+                <div class="flex flex-col" v-if="this.status">
                     <p class="text-white font-bold text-xs uppercase">Una nuova missione per te</p>
                     <p class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm">
                         La Juventus F.C ci ha contattati per un servizio business che servirà a portare due stelle del club, attualmente fuori dall'Italia, a Torino in modo da poter tornare ad allenarsi con la squadra.
                         Stiamo parlando di Sami Kedhira e Miralem Pjanic. Il...
                     </p>
                 </div>
-                <div class="flex justify-between items-end">
+                <div class="flex justify-between items-end" v-if="this.status">
                     <a href="#" class="transition bg-black px-4 py-3 rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-gray-800 hover:text-white">
                         Scopri di più
                     </a>
@@ -60,14 +64,15 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 xl:p-0 gap-4 xl:gap-6">
             <div class="col-span-1 md:col-span-2 lg:col-span-4 flex justify-between">
                 <h2 class="text-xs md:text-sm text-gray-700 font-bold tracking-wide md:tracking-wider">
-                    Expenses By Category</h2>
-                <a href="#" class="text-xs text-gray-800 font-semibold uppercase">More</a>
+                    Le mie statistiche
+                </h2>
+                <a href="#" class="text-xs text-gray-800 font-semibold uppercase">Condividi</a>
             </div>
             <div class="bg-white p-6 rounded-xl border border-gray-50">
                 <div class="flex justify-between items-start">
                     <div class="flex flex-col">
-                        <p class="text-xs text-gray-600 tracking-wide">Foods &amp; Beverages</p>
-                        <h3 class="mt-1 text-lg text-blue-500 font-bold">$ 818</h3>
+                        <p class="text-xs text-gray-600 tracking-wide">Attualmente sei a</p>
+                        <h3 class="mt-1 text-lg text-blue-500 font-bold">{{user.location}}</h3>
                         <span class="mt-4 text-xs text-gray-500">Last Transaction 3 Hours ago</span>
                     </div>
                     <div class="bg-blue-500 p-1 xl:p-2 rounded-md">
@@ -230,6 +235,7 @@
             return{
                 location : JSON.parse(localStorage.getItem('location')),
                 user: JSON.parse(localStorage.getItem('user')),
+                hours: JSON.parse(localStorage.getItem('hours')),
                 status: false
             }
         },
