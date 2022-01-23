@@ -8,7 +8,7 @@ import './index.css'
 
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'https://royalskyservice.it/';
+axios.defaults.baseURL = 'https://royalskyservice.it/api';
 
 /*
 new Vue({
@@ -30,5 +30,7 @@ const location = {
   longitude: '9.277',
   icao: 'LIMF'
 }
+
+
 
 localStorage.setItem('location', JSON.stringify(location))

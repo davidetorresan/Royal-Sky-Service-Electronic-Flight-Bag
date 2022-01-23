@@ -7,50 +7,48 @@
                 <div class="flex flex-col space-y-6 md:h-full md:justify-between">
                     <div class="flex justify-between">
                         <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">
-                            Main Account
+                            Il mio account (<span class="text-orange-600" v-if="!status">Non disponibile</span><span class="text-green-600" v-else>Disponibile</span>)
                         </span>
                         <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">
-                            Available Funds
+                            Ore di volo totali
                         </span>
                     </div>
                     <div class="flex gap-2 md:gap-4 justify-between items-center">
                         <div class="flex flex-col space-y-4">
-                            <h2 class="text-gray-800 font-bold tracking-widest leading-tight">Derol's Savings
-                                Account</h2>
+                            <h2 class="text-gray-800 font-bold tracking-widest leading-tight">{{user.name}} {{user.surname}}</h2>
                             <div class="flex items-center gap-4">
-                                <p class="text-lg text-gray-600 tracking-wider">**** **** *321</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <p class="text-lg text-gray-600 tracking-wider">{{user.callsign}}</p>
+                                <!--<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
+                                </svg>-->
                             </div>
                         </div>
                         <h2 class="text-lg md:text-xl xl:text-3xl text-gray-700 font-black tracking-wider">
-                            <span class="md:text-xl">$</span>
-                            92,817.45
+                            {{user.gva_hours}}
+                            <span class="md:text-xl">h</span>
                         </h2>
                     </div>
                     <div class="flex gap-2 md:gap-4">
-                        <a href="#" class="bg-blue-600 px-5 py-3 w-full text-center md:w-auto rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-blue-800">
-                            Transfer Money
-                        </a>
-                        <a href="#" class="bg-blue-50 px-5 py-3 w-full text-center md:w-auto rounded-lg text-blue-600 text-xs tracking-wider font-semibold hover:bg-blue-600 hover:text-white">
+                        <div @click="this.status = !this.status" class="transition cursor-pointer bg-black px-5 py-3 w-full text-center md:w-auto rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-gray-800">
+                            {{ !this.status ? 'Sono disponibile per nuove missioni' : 'Non sono disponibile per nuove missioni' }}
+                        </div>
+                        <a href="#" class="transition bg-[#c7931473] px-5 py-3 w-full text-center md:w-auto rounded-lg text-[#875808] text-xs tracking-wider font-semibold hover:bg-[#c79314] hover:text-white">
                             Link Account
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-800 flex flex-col justify-between">
+            <div class="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-[#c79314] to-[#875808] flex flex-col justify-between">
                 <div class="flex flex-col">
-                    <p class="text-white font-bold">Lorem ipsum dolor sit amet</p>
+                    <p class="text-white font-bold text-xs uppercase">Una nuova missione per te</p>
                     <p class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio soluta saepe consequuntur
-                        facilis ab a. Molestiae ad saepe assumenda praesentium rem dolore? Exercitationem, neque
-                        obcaecati?
+                        La Juventus F.C ci ha contattati per un servizio business che servirà a portare due stelle del club, attualmente fuori dall'Italia, a Torino in modo da poter tornare ad allenarsi con la squadra.
+                        Stiamo parlando di Sami Kedhira e Miralem Pjanic. Il...
                     </p>
                 </div>
                 <div class="flex justify-between items-end">
-                    <a href="#" class="bg-blue-800 px-4 py-3 rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-blue-600 hover:text-white">
-                        Learn More
+                    <a href="#" class="transition bg-black px-4 py-3 rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-gray-800 hover:text-white">
+                        Scopri di più
                     </a>
                     <!--<img src="assets/calendar.png" alt="calendar" class="w-auto h-24 object-cover">-->
                 </div>
@@ -230,7 +228,9 @@
         name: 'Home',
         data(){
             return{
-                location : JSON.parse(localStorage.getItem('location'))
+                location : JSON.parse(localStorage.getItem('location')),
+                user: JSON.parse(localStorage.getItem('user')),
+                status: false
             }
         },
         components: {

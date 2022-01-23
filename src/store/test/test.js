@@ -15,8 +15,3 @@ export const booking = {
     }
 };
 
-export const user = {
-    callsign: 'ROY28D',
-    firstname: 'Davide',
-    lastname: 'Torresan'
-}

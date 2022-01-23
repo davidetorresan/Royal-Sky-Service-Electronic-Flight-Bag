@@ -29,7 +29,7 @@
                 <li v-if="!data.booked"><router-link to="/book" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Prenotazione</router-link></li>
                 <li v-if="data.booked"><router-link to="/planning" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Pianificazione</router-link></li>
                 <li><router-link to="/missions" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Missions</router-link></li>
-                <li><router-link to="/weather" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Weather</router-link></li>
+                <li><router-link to="/weather" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Meteo</router-link></li>
                 <!--<li class="relative">
                     <router-link @click="open = !open" to="/weather" class="px-2 xl:px-4 py-2 text-gray-600 rounded-md hover:bg-gray-200 flex gap-2 items-center">
                         Weather
@@ -98,7 +98,7 @@
             <ul class="flex items-center gap-6">
                 <li>
                     <a href="#" class="text-sm font-sans text-gray-800 font-semibold tracking-wider">
-                        {{user.firstname}} {{user.lastname}}
+                        {{user.name}} {{user.surname}}
                     </a>
                 </li>
             </ul>
@@ -165,19 +165,26 @@
     </nav>
 </template>
 <script>
-    import { booking, user } from '../store/test/test'
-
+    import { booking } from '../store/test/test'
+    import axios from 'axios'
     export default {
         name: 'NavBar',
         data(){
             return {
                 data: booking,
                 open: false,
-                user: user
+                user: {}
             }
         },
         computed : {
             //isLoggedIn : function(){ return this.$store.getters.ciao },
+        },
+        mounted(){
+            if(localStorage.getItem('user') != '' || localStorage.getItem('user')){
+                this.user = JSON.parse(localStorage.getItem('user'))
+            }else{
+                this.getUser()
+            }
         },
         created(){
             this.$router.push('/')
@@ -186,6 +193,11 @@
             async logout (){
                 await this.$store.dispatch('LogOut')
                 this.$router.push('/login')
+            },
+            async getUser(){
+                let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=37`)
+                this.user = response.data
+                localStorage.setItem('user', JSON.stringify(this.user))
             }
         },
     }

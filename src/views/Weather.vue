@@ -117,7 +117,7 @@
         methods:{
             async getweatherInfos(icao){
                 this.loading = true;
-                await axios.get(`https://royalskyservice.it/weather.php?decoded=true&icao=${icao}`)
+                await axios.get(`https://royalskyservice.it/api/weather.php?decoded=true&icao=${icao}`)
                 .then(res => {
                     this.showWindy = true;
                     this.data = res.data.data[0]
@@ -150,7 +150,7 @@
 
 
                 /*
-                await axios.get(`https://royalskyservice.it/weather.php?encoded=true&icao=${icao}`)
+                await axios.get(`https://royalskyservice.it/api/weather.php?encoded=true&icao=${icao}`)
                 .then(res => {
                     this.loading = false;
                 }).catch(err => console.log(err))
