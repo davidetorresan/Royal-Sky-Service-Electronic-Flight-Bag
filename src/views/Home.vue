@@ -40,9 +40,7 @@
             </div>
             <div class="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-[#c79314] to-[#875808] flex flex-col justify-between relative">
                 <img v-if="!this.status" class="opacity-20 w-[250px] absolute top-[55%] -translate-x-[52%] -translate-y-[50%] left-[50%]" src="../../assets/logo-v2.png" alt="">
-                <div class="flex w-full flex-col items-center justify-center absolute top-[50%] -translate-x-[50%] -translate-y-[50%] left-[50%]" v-if="!this.status">
-                    <p class="text-white font-bold text-md uppercase">Non riceverai missioni fino a che non ti renderai disponibile :)</p>
-                </div>
+
                 <div class="flex flex-col" v-if="this.status">
                     <p class="text-white font-bold text-xs uppercase">Una nuova missione per te</p>
                     <p class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm">
@@ -222,9 +220,6 @@
             </div>
         </div>
         <!-- End Third Row -->
-        <div class="w-full mt-48 p-6 rounded-2xl bg-white flex flex-col justify-center items-center text-white relative">
-            <p class="text-xs text-black">Powered by <b>Royal Sky Service Weather System&trade;</b></p>
-        </div> 
     </div>
 </main>
 </template>

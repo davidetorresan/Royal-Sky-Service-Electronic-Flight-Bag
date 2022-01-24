@@ -2,14 +2,17 @@
   <div id="app" class="relative antialiased bg-gray-100">
     <NavBar />
     <router-view />
+    <Radio />
   </div>
 </template>
 <script>
   import NavBar from './components/NavBar.vue'
+  import Radio from './components/Radio.vue'
   import axios from 'axios'
   export default {
     components: {
-      NavBar
+      NavBar,
+      Radio 
     },
     data(){
       return{
