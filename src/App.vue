@@ -2,7 +2,6 @@
   <div id="app" class="relative antialiased bg-gray-100">
     <NavBar />
     <router-view />
-    <Radio />
   </div>
 </template>
 <script>

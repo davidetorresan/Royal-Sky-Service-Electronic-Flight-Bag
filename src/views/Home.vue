@@ -32,9 +32,10 @@
                         <div @click="this.status = !this.status" class="transition cursor-pointer bg-black px-5 py-3 w-full text-center md:w-auto rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-gray-800">
                             {{ !this.status ? 'Sono disponibile per nuove missioni' : 'Non sono disponibile per nuove missioni' }}
                         </div>
-                        <a href="#" class="transition bg-[#c7931473] px-5 py-3 w-full text-center md:w-auto rounded-lg text-[#875808] text-xs tracking-wider font-semibold hover:bg-[#c79314] hover:text-white">
-                            Link Account
-                        </a>
+                        <div @click="this.radio = !this.radio" class="cursor-pointer transition bg-[#c7931473] px-5 py-3 w-full text-center md:w-auto rounded-lg text-[#875808] text-xs tracking-wider font-semibold hover:bg-[#c79314] hover:text-white">
+                            {{radio ? 'Spegni radio' : 'Accendi radio'}}
+                        </div>
+                        <Radio v-if="radio"/>
                     </div>
                 </div>
             </div>
@@ -224,6 +225,7 @@
 </main>
 </template>
 <script>
+    import Radio from '../components/Radio.vue'
     export default {
         name: 'Home',
         data(){
@@ -231,10 +233,12 @@
                 location : JSON.parse(localStorage.getItem('location')),
                 user: JSON.parse(localStorage.getItem('user')),
                 hours: JSON.parse(localStorage.getItem('hours')),
-                status: false
+                status: false,
+                radio: false
             }
         },
         components: {
+            Radio
         },
         computed : {
             
