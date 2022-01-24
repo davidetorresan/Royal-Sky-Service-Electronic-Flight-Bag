@@ -21,7 +21,8 @@ import axios from 'axios'
                 hideRadio : false
             }
         },
-        created() {
+        mounted() {
+            document.getElementById('radioArrow').style.display = 'none'
             setTimeout(() => {
                 document.getElementById('radioContainer').classList.add('hide')
                 document.getElementById('radioArrow').style.display = 'block'
@@ -49,7 +50,5 @@ import axios from 'axios'
         left: 5px;
         opacity: 0.5;
     }
-    .hide:hover .arrow{
-        transform: rotate(180deg);
-    }
+
 </style>
