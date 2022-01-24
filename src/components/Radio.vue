@@ -1,6 +1,7 @@
 <template>
     <div id="radioContainer" class="w-[320px] p-2 fixed transition-transform duration-600 right-0 bottom-2">
-        <div id="radio" class="w-[300px] p-4 rounded-2xl bg-white flex justify-start justify-around items-center text-white drop-shadow-2xl">
+        <div class="w-[300px] p-4 rounded-2xl bg-white flex justify-start justify-around items-center text-white drop-shadow-2xl">
+            <img id="radioArrow" class="arrow" src="../../assets/left-arrow.png" alt="">
             <p class="text-black">Stai ascoltando</p>
             <div class="w-[50px]"><img src="../../assets/virgin.png" alt=""></div>
             <audio  autoplay class="ml-10">
@@ -23,7 +24,7 @@ import axios from 'axios'
         created() {
             setTimeout(() => {
                 document.getElementById('radioContainer').classList.add('hide')
-                document.getElementById('radio').classList.add('arrow')
+                document.getElementById('radioArrow').style.display = 'block'
             }, 3000)
         }
         /*async created(){
@@ -41,15 +42,14 @@ import axios from 'axios'
     .hide:hover{
         transform: translateX(0%);
     }
-    .arrow::after{
-        content : '<';
-        color: grey;
+    .arrow{
+        display: none;
+        width: 36px;
         position: absolute;
-        left: 15px;
-        top: 28px;
-        transition: all 0.3s linear;
+        left: 5px;
+        opacity: 0.5;
     }
-    .hide:hover .arrow::after{
+    .hide:hover .arrow{
         transform: rotate(180deg);
     }
 </style>
