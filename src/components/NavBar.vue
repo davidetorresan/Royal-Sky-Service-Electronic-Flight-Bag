@@ -196,16 +196,7 @@
                 await this.$store.dispatch('LogOut')
                 this.$router.push('/login')
             },
-<<<<<<< Updated upstream
             
-=======
-            async getUser(){
-                let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=37`)
-                this.user = response.data
-                console.log(response.data)
-                localStorage.setItem('user', JSON.stringify(this.user))
-            }
->>>>>>> Stashed changes
         },
     }
 </script>
