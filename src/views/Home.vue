@@ -1,4 +1,6 @@
 <template>
+<NavBar />
+
 <main class="container mx-w-6xl mx-auto py-4">
     <div class="flex flex-col space-y-8">
         <!-- First Row -->
@@ -24,7 +26,7 @@
                             </div>
                         </div>
                         <h2 class="text-lg md:text-xl xl:text-3xl text-gray-700 font-black tracking-wider">
-                            {{hours}}
+                            {{user.gva_hours}}
                             <span class="md:text-xl">h</span>
                         </h2>
                     </div>
@@ -63,88 +65,87 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 xl:p-0 gap-4 xl:gap-6">
             <div class="col-span-1 md:col-span-2 lg:col-span-4 flex justify-between">
                 <h2 class="text-xs md:text-sm text-gray-700 font-bold tracking-wide md:tracking-wider">
-                    Le mie statistiche
+                    Le mie informazioni
                 </h2>
                 <a href="#" class="text-xs text-gray-800 font-semibold uppercase">Condividi</a>
             </div>
             <div class="bg-white p-6 rounded-xl border border-gray-50">
                 <div class="flex justify-between items-start">
-                    <div class="flex flex-col">
+                    <div class="flex flex-col justify-between">
                         <p class="text-xs text-gray-600 tracking-wide">Attualmente sei a</p>
                         <h3 class="mt-1 text-lg text-blue-500 font-bold">{{user.location}}</h3>
-                        <span class="mt-4 text-xs text-gray-500">Last Transaction 3 Hours ago</span>
                     </div>
-                    <div class="bg-blue-500 p-1 xl:p-2 rounded-md">
-                        <!--<img src="assets/dish-2.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">-->
-                    </div>
+                    <!--<div class="bg-blue-500 p-1 xl:p-2 rounded-md">
+                        <img src="assets/dish-2.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">
+                    </div>-->
                 </div>
             </div>
             <div class="bg-white p-6 rounded-xl border border-gray-50">
                 <div class="flex justify-between items-start">
                     <div class="flex flex-col">
-                        <p class="text-xs text-gray-600 tracking-wide">Groceries</p>
-                        <h3 class="mt-1 text-lg text-green-500 font-bold">$ 8,918</h3>
-                        <span class="mt-4 text-xs text-gray-500">Last Transaction 3 Days ago</span>
+                        <p class="text-xs text-gray-600 tracking-wide">Pirep Totali</p>
+                        <h3 class="mt-1 text-lg text-indigo-500 font-bold">{{user.flightsInfo.totPireps}}</h3>
                     </div>
-                    <div class="bg-green-500 p-1 xl:p-2 rounded-md">
-                        <!--<img src="assets/grocery.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">-->
-                    </div>
+                    <!--<div class="bg-indigo-500 p-1 xl:p-2 rounded-md">
+                        <img src="assets/holiday.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">
+                    </div>-->
                 </div>
             </div>
             <div class="bg-white p-6 rounded-xl border border-gray-50">
                 <div class="flex justify-between items-start">
                     <div class="flex flex-col">
-                        <p class="text-xs text-gray-600 tracking-wide">Gaming</p>
-                        <h3 class="mt-1 text-lg text-yellow-500 font-bold">$ 1,223</h3>
-                        <span class="mt-4 text-xs text-gray-600">Last Transaction 4 Days ago</span>
+                        <p class="text-xs text-gray-600 tracking-wide">Conto Corrente Royal</p>
+                        <h3 class="mt-1 text-lg text-green-500 font-bold" v-if="user.money > '0'">€ {{user.money}}</h3>
+                        <h3 class="mt-1 text-lg text-red-500 font-bold" v-if="user.money < '0'">€ {{user.money}}</h3>
                     </div>
-                    <div class="bg-yellow-500 p-1 xl:p-2 rounded-md">
-                        <!--<img src="assets/gaming.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">-->
-                    </div>
+                    <!--<div class="bg-green-500 p-1 xl:p-2 rounded-md">
+                        <img src="assets/grocery.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">
+                    </div>-->
                 </div>
             </div>
             <div class="bg-white p-6 rounded-xl border border-gray-50">
                 <div class="flex justify-between items-start">
                     <div class="flex flex-col">
-                        <p class="text-xs text-gray-600 tracking-wide">Trip &amp; Holiday</p>
-                        <h3 class="mt-1 text-lg text-indigo-500 font-bold">$ 5,918</h3>
-                        <span class="mt-4 text-xs text-gray-500">Last Transaction 1 Month ago</span>
+                        <p class="text-xs text-gray-600 tracking-wide">Grado Royal</p>
+                        <h3 class="mt-1 text-lg text-yellow-500 font-bold">{{user.rankInfo.rank}}</h3>
+                        <span class="mt-4 text-xs text-gray-500">Compenso: €{{user.rankInfo.salary_hour}},00/ora di volo</span>
                     </div>
-                    <div class="bg-indigo-500 p-1 xl:p-2 rounded-md">
-                        <!--<img src="assets/holiday.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">-->
-                    </div>
+                    <!--<<div class="bg-yellow-500 p-1 xl:p-2 rounded-md">
+                        img src="assets/gaming.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">
+                    </div>-->
                 </div>
             </div>
+
         </div>
         <!-- End Second Row -->
         <!-- Start Third Row -->
         <div class="grid grid-cols-1 md:grid-cols-5 items-start px-4 xl:p-0 gap-y-4 md:gap-6">
             <div class="col-start-1 col-end-5">
-                <h2 class="text-xs md:text-sm text-gray-600 font-bold tracking-wide">Summary Transactions</h2>
+                <h2 class="text-xs md:text-sm text-gray-600 font-bold tracking-wide">Qualcos'altro</h2>
             </div>
             <div class="col-span-2 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 flex justify-between items-center">
-                    <div class="p-4 cursor-pointer border">
-                        <span class="text-xs text-gray-500 font-semibold">Daily</span>
-                        <h2 class="text-gray-800 font-bold tracking-wider">$ 27.80</h2>
-                    </div>
-                    <div class="p-4 cursor-pointer border">
-                        <span class="text-xs text-gray-500 font-semibold">Weekly</span>
-                        <h2 class="text-gray-800 font-bold tracking-wider">$ 192.92</h2>
-                    </div>
-                    <div class="p-4 cursor-pointer border">
-                        <span class="text-xs text-gray-500 font-semibold">Monthly</span>
-                        <h2 class="text-gray-800 font-bold tracking-wider">$ 501.10</h2>
-                    </div>
-                </div>
-                <canvas id="myChart" style="display: block; box-sizing: border-box; height: 550px; width: 550px;" width="550" height="550"></canvas>
+                
             </div>
             <div class="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6">
                 <div class="flex justify-between items-center">
-                    <h2 class="text-sm text-gray-600 font-bold tracking-wide">Latest Transactions</h2>
-                    <a href="#" class="px-4 py-2 text-xs bg-blue-100 text-blue-500 rounded uppercase tracking-wider font-semibold hover:bg-blue-300">More</a>
+                    <h2 class="text-sm text-gray-600 font-bold tracking-wide">Ultimi voli effttuati</h2>
+                    <a href="#" class="px-4 py-2 text-xs bg-blue-100 text-blue-500 rounded uppercase tracking-wider font-semibold hover:bg-blue-300">Vedi Tutti</a>
                 </div>
                 <ul class="divide-y-2 divide-gray-100 overflow-x-auto w-full">
+
+                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold" v-for="(flight, index) in latestFlights" :key="index">
+                        <p class="px-4 font-semibold">{{flight.date_int}}</p>
+                        <p class="px-4 text-gray-600">{{flight.departure}}</p>
+                        <p class="px-4 tracking-wider">{{flight.arrival}}</p>
+                        <p class="px-4 text-blue-600">{{flight.distance}} nm</p>
+                        <p class="md:text-base text-gray-800 flex items-center gap-2">
+                            16.90
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </p>
+                    </li>
+<!--
                     <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
                         <p class="px-4 font-semibold">Today</p>
                         <p class="px-4 text-gray-600">McDonald</p>
@@ -205,18 +206,7 @@
                             </svg>
                         </p>
                     </li>
-                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
-                        <p class="px-4 font-semibold">Today</p>
-                        <p class="px-4 text-gray-600">McDonald</p>
-                        <p class="px-4 tracking-wider">Cash</p>
-                        <p class="px-4 text-blue-600">Food</p>
-                        <p class="md:text-base text-gray-800 flex items-center gap-2">
-                            16.90
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </p>
-                    </li>
+                    -->
                 </ul>
             </div>
         </div>
@@ -226,19 +216,32 @@
 </template>
 <script>
     import Radio from '../components/Radio.vue'
+    import NavBar from '../components/NavBar.vue'
     export default {
         name: 'Home',
         data(){
             return{
                 location : JSON.parse(localStorage.getItem('location')),
                 user: JSON.parse(localStorage.getItem('user')),
-                hours: JSON.parse(localStorage.getItem('hours')),
+                latestFlights : [],
                 status: false,
                 radio: false
             }
         },
         components: {
-            Radio
+            Radio,
+            NavBar
+        },
+        mounted(){
+            let tempo = []
+
+            this.user.flightsInfo.flights.map((item, i) => {
+                if(i < 6){
+                    tempo.push(item)
+                }
+            })
+
+            this.latestFlights = tempo
         },
         computed : {
             

@@ -1,6 +1,5 @@
 <template>
   <div id="app" class="relative antialiased bg-gray-100">
-    <NavBar />
     <router-view />
   </div>
 </template>
@@ -16,21 +15,25 @@
     data(){
       return{
         login : false,
-        hours : null
       }
     },
-    created(){
-      if(localStorage.getItem('user') == '' || !localStorage.getItem('user')){
+    mounted(){
+      if(!localStorage.getItem('token') || localStorage.getItem('token') == ""){
+        this.$router.push('/login')
+      }else{
         this.getUser()
       }
+      
     },
     methods:{
       async getUser(){
-        let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=82`)
+        let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=82`, {
+          headers:{
+            'royal-token' : localStorage.getItem('token')
+          }
+        })
         this.user = response.data
-        this.hours = this.user.transfered_hours + this.user.gva_hours
         localStorage.setItem('user', JSON.stringify(this.user))
-        localStorage.setItem('hours', JSON.stringify(this.hours))
       }
     }
   }
@@ -53,5 +56,8 @@
   }
   .router-link-active{
     color: rgb(25, 31, 41)!important;
+  }
+  body{
+    background: rgb(243, 244, 246);
   }
 </style>

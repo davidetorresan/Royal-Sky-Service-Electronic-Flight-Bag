@@ -23,6 +23,7 @@ import axios from 'axios'
         },
         mounted() {
             document.getElementById('radioArrow').style.display = 'none'
+            
             setTimeout(() => {
                 document.getElementById('radioContainer').classList.add('hide')
                 document.getElementById('radioArrow').style.display = 'block'

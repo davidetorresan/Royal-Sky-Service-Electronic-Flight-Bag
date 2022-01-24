@@ -1,3 +1,12 @@
 <template>
-    <h1>Missions</h1>
+    <NavBar />
+    <p>Missioni</p>
 </template>
+<script>
+  import NavBar from '../components/NavBar.vue'
+  export default {
+    components: {
+      NavBar,
+    },
+}
+</script>

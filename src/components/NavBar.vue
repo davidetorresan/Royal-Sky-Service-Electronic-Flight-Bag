@@ -183,13 +183,7 @@
             
         },
         created(){
-            this.$router.push('/')
-            if(!localStorage.getItem('user')){
-                //this.user = JSON.parse(localStorage.getItem('user'))
-                this.getUser()
 
-            }else{
-            }
         },
         methods: {
             async logout (){

@@ -1,4 +1,5 @@
 <template>
+    <NavBar />
     <main class="container mx-w-6xl mx-auto py-4 h-[88.5vh]">
         <div class="flex flex-col">
             <!-- First Row -->
@@ -97,6 +98,7 @@
 </template>
 <script>
     import axios from 'axios'
+    import NavBar from '../components/NavBar.vue'
     export default {
         data(){
             return{
@@ -111,13 +113,20 @@
                 location : !localStorage.getItem('location') ? null : JSON.parse(localStorage.getItem('location'))
             }
         },
+        components: {
+            NavBar
+        },
         mounted(){
             //this.getweatherInfos("LIMF")
         },
         methods:{
             async getweatherInfos(icao){
                 this.loading = true;
-                await axios.get(`https://royalskyservice.it/api/weather.php?decoded=true&icao=${icao}`)
+                await axios.get(`https://royalskyservice.it/api/weather.php?decoded=true&icao=${icao}`, {
+                    headers:{
+                        'royal-token' : localStorage.getItem('token')
+                    }
+                })
                 .then(res => {
                     this.showWindy = true;
                     this.data = res.data.data[0]
