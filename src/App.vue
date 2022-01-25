@@ -1,4 +1,16 @@
 <template>
+  <v-titlebar :theme="theme" :platform="platform" :on-close="close" :on-maximize="toggleMaximize"
+            :on-minimize="minimize" :is-maximizable="isMaximizable" :is-closable="isClosable"
+            :is-minimizable="isMinimizable" :menu="menu" :show-icon="showIcon" :show-title="showTitle">
+
+    <template slot="icon">
+      <img src="image.png" alt="icon" />
+    </template>
+
+    <template slot="title">
+      App Name
+    </template>
+  </v-titlebar>
   <div id="app" class="relative antialiased bg-gray-100">
     <router-view v-if="login == true"/>
     <div v-else class="w-screen h-screen flex items-center justify-center">

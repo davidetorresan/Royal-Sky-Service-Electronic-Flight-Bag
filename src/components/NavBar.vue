@@ -51,9 +51,9 @@
             </ul>
             <ul class="flex items-center gap-6">
                 <li>
-                    <a href="#" class="text-sm font-sans text-gray-800 font-semibold tracking-wider">
+                    <router-link to="/profile" class="text-sm font-sans text-gray-800 font-semibold tracking-wider">
                         {{user.name}} {{user.surname}}
-                    </a>
+                    </router-link>
                 </li>
             </ul>
         </div>

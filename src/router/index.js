@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Missions from '../views/Missions.vue'
 import Weather from '../views/Weather.vue'
 import Planning from '../views/Planning.vue'
 import Book from '../views/Book.vue'
+import Profile from '../views/Profile.vue'
 
 const routes = [
   {
@@ -17,6 +17,11 @@ const routes = [
     path: '/weather',
     name: 'Weather',
     component: Weather
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
   },
   {
     path: '/missions',
@@ -32,11 +37,6 @@ const routes = [
     path: '/planning',
     name: 'Planning',
     component: Planning
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
   },
   {
     path: '/register',
