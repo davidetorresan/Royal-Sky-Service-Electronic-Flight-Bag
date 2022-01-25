@@ -16,7 +16,7 @@
                 <li><router-link to="/" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Home</router-link></li>
                 <li v-if="!data.booked"><router-link to="/book" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Prenotazione</router-link></li>
                 <li v-if="data.booked"><router-link to="/planning" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Pianificazione</router-link></li>
-                <li><router-link to="/missions" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Missions</router-link></li>
+                <li><router-link to="/missions" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Missioni</router-link></li>
                 <li><router-link to="/weather" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Meteo</router-link></li>
             </ul>
             <ul class="flex space-x-2 xl:space-x-4 text-sm font-semibold">
