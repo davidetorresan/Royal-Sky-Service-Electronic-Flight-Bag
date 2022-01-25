@@ -145,68 +145,6 @@
                             </svg>
                         </p>
                     </li>
-<!--
-                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
-                        <p class="px-4 font-semibold">Today</p>
-                        <p class="px-4 text-gray-600">McDonald</p>
-                        <p class="px-4 tracking-wider">Cash</p>
-                        <p class="px-4 text-blue-600">Food</p>
-                        <p class="md:text-base text-gray-800 flex items-center gap-2">
-                            16.90
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </p>
-                    </li>
-                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
-                        <p class="px-4 font-semibold">Today</p>
-                        <p class="px-4 text-gray-600">McDonald</p>
-                        <p class="px-4 tracking-wider">Cash</p>
-                        <p class="px-4 text-blue-600">Food</p>
-                        <p class="md:text-base text-gray-800 flex items-center gap-2">
-                            16.90
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </p>
-                    </li>
-                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
-                        <p class="px-4 font-semibold">Today</p>
-                        <p class="px-4 text-gray-600">McDonald</p>
-                        <p class="px-4 tracking-wider">Cash</p>
-                        <p class="px-4 text-blue-600">Food</p>
-                        <p class="md:text-base text-gray-800 flex items-center gap-2">
-                            16.90
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </p>
-                    </li>
-                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
-                        <p class="px-4 font-semibold">Today</p>
-                        <p class="px-4 text-gray-600">McDonald</p>
-                        <p class="px-4 tracking-wider">Cash</p>
-                        <p class="px-4 text-blue-600">Food</p>
-                        <p class="md:text-base text-gray-800 flex items-center gap-2">
-                            16.90
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </p>
-                    </li>
-                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
-                        <p class="px-4 font-semibold">Today</p>
-                        <p class="px-4 text-gray-600">McDonald</p>
-                        <p class="px-4 tracking-wider">Cash</p>
-                        <p class="px-4 text-blue-600">Food</p>
-                        <p class="md:text-base text-gray-800 flex items-center gap-2">
-                            16.90
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </p>
-                    </li>
-                    -->
                 </ul>
             </div>
         </div>
@@ -231,6 +169,9 @@
         components: {
             Radio,
             NavBar
+        },
+        created(){
+
         },
         mounted(){
             let tempo = []

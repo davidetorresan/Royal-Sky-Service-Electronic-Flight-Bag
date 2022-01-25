@@ -1,16 +1,4 @@
 <template>
-    <!--<div id="nav" class="w-full bg-yellow-500 flex justify-end items-center ">
-        <ul class="flex justify-between w-9/12 lg:w-6/12">
-            <li><router-link to="/">Home</router-link></li>
-            <li v-if="!data.booked"><router-link to="/book">Prenotazione</router-link></li>
-            <li v-if="data.booked"><router-link to="/planning">Pianificazione</router-link></li>
-            <li><router-link to="/weather">Meteo</router-link></li>
-            <li><router-link to="/missions">Missioni<span class="nMission">10</span></router-link></li>
-                <li v-if="isLoggedIn"><a @click="logout">Logout</a></li>
-                <li v-if="!isLoggedIn"><router-link to="/register">Register</router-link></li>
-                <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>
-        </ul>
-    </div>-->
     <nav class="p-4 md:py-8 xl:px-0 md:container md:mx-w-6xl md:mx-auto sticky top-0 bg-gray-100 z-30">
         <div class="hidden lg:flex lg:justify-between lg:items-center">
             <a href="#" class="flex items-start gap-2 group">
@@ -30,40 +18,6 @@
                 <li v-if="data.booked"><router-link to="/planning" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Pianificazione</router-link></li>
                 <li><router-link to="/missions" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Missions</router-link></li>
                 <li><router-link to="/weather" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Meteo</router-link></li>
-                <!--<li class="relative">
-                    <router-link @click="open = !open" to="/weather" class="px-2 xl:px-4 py-2 text-gray-600 rounded-md hover:bg-gray-200 flex gap-2 items-center">
-                        Weather
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 stroke-current stroke-2 text-gray-800 transform duration-500 ease-in-out" :class="open ? 'rotate-90' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg> 
-                    </router-link>
-                    <ul v-show="open" class="absolute top-10 left-0 bg-white p-4 rounded-md shadow overflow-hidden w-64">
-                        <li>
-                            <a href="#" class="p-4 block text-sm text-gray-600 rounded flex items-center gap-2 hover:bg-gray-100">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                                Transaction ABC
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="p-4 block text-sm text-gray-600 rounded flex items-center gap-2 hover:bg-gray-100">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                                Transaction DEF
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="p-4 block text-sm text-gray-600 rounded flex items-center gap-2 hover:bg-gray-100">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                                Transaction GHI
-                            </a>
-                        </li>
-                    </ul>
-                </li>-->
             </ul>
             <ul class="flex space-x-2 xl:space-x-4 text-sm font-semibold">
                 <li>
@@ -165,12 +119,12 @@
     </nav>
 </template>
 <script>
-    import { booking } from '../store/test/test'
+    //import { booking } from '../store/test/test'
     export default {
         name: 'NavBar',
         data(){
             return {
-                data: booking,
+                data: {},
                 open: false,
                 user: JSON.parse(localStorage.getItem('user')),
                 //hours : 0
