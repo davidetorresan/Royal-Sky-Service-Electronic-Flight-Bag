@@ -65,15 +65,30 @@
           localStorage.setItem('user', JSON.stringify(res.data))
           localStorage.setItem('login', true)
           
-          let resp = await axios.get(`https://royalskyservice.it/api/weather.php?decoded=true&icao=${res.data.location}`)
+          let resp = await axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
+            headers: {
+              'x-rapidapi-host': 'airport-info.p.rapidapi.com',
+              'x-rapidapi-key': '0b3447fca9msh477e888d19607fap14e206jsndd35bba6653e'
+            }
+          })
 
           localStorage.setItem('location', JSON.stringify({
             icao: res.data.location, 
-            latitude: resp.data.data[0].station.geometry.coordinates[1], 
-            longitude: resp.data.data[0].station.geometry.coordinates[0]
+            latitude: resp.data.latitude, 
+            longitude: resp.data.longitude 
           }))
 
           this.login = true
+
+          let bookings = await this.$axios.get('get_user_booked_routes.php?id=82')
+
+          if(bookings.data){
+            localStorage.setItem('booking', JSON.stringify({
+              booked: true,
+              data : bookings.data
+            }))
+          }
+
         }
       },
     }

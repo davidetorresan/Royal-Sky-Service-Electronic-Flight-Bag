@@ -131,10 +131,10 @@
             }
         },
         computed : {
-            //isLoggedIn : function(){ return this.$store.getters.ciao },
+            //isLoggedIn : function(){ return this.$store.getters.ciao }
         },
         mounted(){
-            
+            this.data = JSON.parse(localStorage.getItem('booking'))
         },
         created(){
 

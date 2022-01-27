@@ -324,6 +324,11 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.27.tgz#d5c6e574ee1afd55043470bf70b15772da4e19a2"
   integrity sha512-rpAn9k6O08Lvo7ekBIAnkOukX/4EsEQLPrRJBKhIEasMsOI5eX0f6mq1sDUSY7cgAqWw2d7QtP74CWxdXoyKxA==
 
+"@wuild/vue-titlebar@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@wuild/vue-titlebar/-/vue-titlebar-1.0.1.tgz#b30d7e100d40fc2aac9b08c575b70244a9e6b2f5"
+  integrity sha512-pSckFT5XeWJuIttNqCQjQSk5o9Cr4q+RNTHBff/l4pN0wOod2zfMwNdFWl/vdGSGuIWALqnftr53xRFov5qukw==
+
 acorn-node@^1.6.1:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/acorn-node/-/acorn-node-1.8.2.tgz#114c95d64539e53dede23de8b9d96df7c7ae2af8"

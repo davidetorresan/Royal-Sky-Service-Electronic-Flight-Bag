@@ -133,14 +133,33 @@
                 </div>
                 <ul class="divide-y-2 divide-gray-100 overflow-x-auto w-full">
 
-                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold items-center" v-for="(flight, index) in latestFlights" :key="index">
-                                        
-                        <p class="w-[20%] px-4 font-semibold">{{flight.date_int.split(' ')[0]}}</p>
-                        <p class="w-[15%] px-4 text-gray-600">{{flight.departure}}</p>
-                        <p class="w-[15%] px-4 tracking-wider">{{flight.arrival}}</p>
-                        <p class="w-[15%] px-4 text-blue-600">{{flight.distance}} nm</p>
-                        <p class="w-[15%] px-4 text-blue-600">B350</p>
-                        <p class="w-[15%] cursor-pointer transition-all text-gray-300 hover:text-gray-800 flex items-center gap-2 rounded-md hover:bg-gray-200 py-2 px-4">
+                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold items-center" v-for="(flight, index) in latestFlights" :key="index">           
+                        <p class="w-[15%] px-2 font-semibold text-center">{{formatDate(flight.date_int.split(' ')[0])}}</p>
+                        <p class="w-[10%] px-2 text-gray-600 text-center">{{flight.departure}}</p>
+                        <p class="w-[10%] px-2 text-gray-600 text-center">{{flight.arrival}}</p>
+                        <p class="w-[15%] px-2 text-blue-600 text-center">{{flight.distance}} nm</p>
+                        <div class="w-[15%] px-2 flex items-center justify-center">
+                            <div v-if="flight.status === '0'">
+                                <div class="flex items-center justify-center">
+                                    <span class="w-[10px] h-[10px] mr-[5px] rounded-full border-red-500 border-[1px] bg-red-500"></span>
+                                    Rifiutato
+                                </div>
+                            </div>
+                            <div v-if="flight.status === '1'">
+                                <div class="flex items-center justify-center">
+                                    <span class="w-[10px] h-[10px] mr-[5px] rounded-full border-yellow-500 border-[1px] bg-yellow-500"></span>
+                                    In attesa
+                                </div>
+                            </div>
+                            <div v-if="flight.status === '0'" class="flex flex-col items-center ">
+                                <div class="flex items-center justify-center">
+                                    <span class="w-[10px] h-[10px] mr-[5px] rounded-full border-green-500 border-[1px] bg-green-500"></span>
+                                    Approvato
+                                </div>
+                            </div>
+                        </div>
+                        <p class="w-[15%] px-2 text-yellow-500 text-center">B350</p>
+                        <p @click="this.$VModal.show(flight.flight)" class="w-[15%] cursor-pointer transition-all text-gray-300 hover:text-gray-800 flex items-center justify-center gap-2 rounded-md hover:bg-gray-200 py-2 px-2">
                             Espandi
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px] -rotate-[90deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
