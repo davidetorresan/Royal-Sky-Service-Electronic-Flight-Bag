@@ -1,16 +1,4 @@
 <template>
-  <v-titlebar :theme="theme" :platform="platform" :on-close="close" :on-maximize="toggleMaximize"
-            :on-minimize="minimize" :is-maximizable="isMaximizable" :is-closable="isClosable"
-            :is-minimizable="isMinimizable" :menu="menu" :show-icon="showIcon" :show-title="showTitle">
-
-    <template slot="icon">
-      <img src="image.png" alt="icon" />
-    </template>
-
-    <template slot="title">
-      App Name
-    </template>
-  </v-titlebar>
   <div id="app" class="relative antialiased bg-gray-100">
     <router-view v-if="login == true"/>
     <div v-else class="w-screen h-screen flex items-center justify-center">
@@ -76,6 +64,15 @@
           localStorage.setItem('token', this.form.token)
           localStorage.setItem('user', JSON.stringify(res.data))
           localStorage.setItem('login', true)
+          
+          let resp = await axios.get(`https://royalskyservice.it/api/weather.php?decoded=true&icao=${res.data.location}`)
+
+          localStorage.setItem('location', JSON.stringify({
+            icao: res.data.location, 
+            latitude: resp.data.data[0].station.geometry.coordinates[1], 
+            longitude: resp.data.data[0].station.geometry.coordinates[0]
+          }))
+
           this.login = true
         }
       },

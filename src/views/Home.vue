@@ -133,14 +133,16 @@
                 </div>
                 <ul class="divide-y-2 divide-gray-100 overflow-x-auto w-full">
 
-                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold" v-for="(flight, index) in latestFlights" :key="index">
-                        <p class="px-4 font-semibold">{{flight.date_int}}</p>
-                        <p class="px-4 text-gray-600">{{flight.departure}}</p>
-                        <p class="px-4 tracking-wider">{{flight.arrival}}</p>
-                        <p class="px-4 text-blue-600">{{flight.distance}} nm</p>
-                        <p class="md:text-base text-gray-800 flex items-center gap-2">
-                            16.90
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold items-center" v-for="(flight, index) in latestFlights" :key="index">
+                                        
+                        <p class="w-[20%] px-4 font-semibold">{{flight.date_int.split(' ')[0]}}</p>
+                        <p class="w-[15%] px-4 text-gray-600">{{flight.departure}}</p>
+                        <p class="w-[15%] px-4 tracking-wider">{{flight.arrival}}</p>
+                        <p class="w-[15%] px-4 text-blue-600">{{flight.distance}} nm</p>
+                        <p class="w-[15%] px-4 text-blue-600">B350</p>
+                        <p class="w-[15%] cursor-pointer transition-all text-gray-300 hover:text-gray-800 flex items-center gap-2 rounded-md hover:bg-gray-200 py-2 px-4">
+                            Espandi
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px] -rotate-[90deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </p>
@@ -183,6 +185,7 @@
             })
 
             this.latestFlights = tempo
+
         },
         computed : {
             

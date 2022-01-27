@@ -112,7 +112,7 @@
                 loading : false,
                 showWindy : false,
                 windy : '',
-                location : !localStorage.getItem('location') ? null : JSON.parse(localStorage.getItem('location'))
+                location : JSON.parse(localStorage.getItem('location'))
             }
         },
         components: {
