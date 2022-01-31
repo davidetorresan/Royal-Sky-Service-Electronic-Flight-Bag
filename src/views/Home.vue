@@ -123,9 +123,6 @@
             <div class="col-start-1 col-end-5">
                 <h2 class="text-xs md:text-sm text-gray-600 font-bold tracking-wide">Qualcos'altro</h2>
             </div>
-            <div class="col-span-2 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6">
-                
-            </div>
             <div class="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6">
                 <div class="flex justify-between items-center">
                     <h2 class="text-sm text-gray-600 font-bold tracking-wide">Ultimi voli effttuati</h2>
@@ -145,13 +142,13 @@
                                     Rifiutato
                                 </div>
                             </div>
-                            <div v-if="flight.status === '1'">
+                            <div v-if="flight.status === '2'">
                                 <div class="flex items-center justify-center">
                                     <span class="w-[10px] h-[10px] mr-[5px] rounded-full border-yellow-500 border-[1px] bg-yellow-500"></span>
                                     In attesa
                                 </div>
                             </div>
-                            <div v-if="flight.status === '0'" class="flex flex-col items-center ">
+                            <div v-if="flight.status === '1'" class="flex flex-col items-center ">
                                 <div class="flex items-center justify-center">
                                     <span class="w-[10px] h-[10px] mr-[5px] rounded-full border-green-500 border-[1px] bg-green-500"></span>
                                     Approvato
@@ -159,7 +156,7 @@
                             </div>
                         </div>
                         <p class="w-[15%] px-2 text-yellow-500 text-center">B350</p>
-                        <p @click="this.$VModal.show(flight.flight)" class="w-[15%] cursor-pointer transition-all text-gray-300 hover:text-gray-800 flex items-center justify-center gap-2 rounded-md hover:bg-gray-200 py-2 px-2">
+                        <p @click="selectFlight(flight)" class="w-[15%] cursor-pointer transition-all text-gray-300 hover:text-gray-800 flex items-center justify-center gap-2 rounded-md hover:bg-gray-200 py-2 px-2">
                             Espandi
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px] -rotate-[90deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -167,6 +164,48 @@
                         </p>
                     </li>
                 </ul>
+            </div>
+            <div class="col-span-2 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6">
+                <div class="flex justify-center">
+                    <div class="flex flex-col justify-between">
+                        <p class="text-xs text-gray-600 tracking-wide font-bold text-center">Volo #</p>
+                        <h3 class="mt-1 text-xl text-blue-500 font-bold text-center">{{flight.flight}}</h3>
+                    </div>
+                </div>
+                <hr>
+                <div class="flex justify-between">
+                    <div class="flex flex-col justify-between">
+                        <p class="text-xs text-gray-600 tracking-wide font-bold">Partenza da</p>
+                        <h3 class="mt-1 text-lg text-blue-500">{{flight.departure}}</h3>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <p class="text-xs text-gray-600 tracking-wide font-bold">Arrivo a</p>
+                        <h3 class="mt-1 text-lg text-blue-500">{{flight.arrival}}</h3>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <p class="text-xs text-gray-600 tracking-wide font-bold">Distanza</p>
+                        <h3 class="mt-1 text-lg text-blue-500">{{flight.distance}} nm</h3>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <p class="text-xs text-gray-600 tracking-wide font-bold">Durata</p>
+                        <h3 class="mt-1 text-lg text-blue-500">{{flight.distance}} h.</h3>
+                    </div>
+                </div>
+                <hr>
+                <div class="flex justify-between">
+                    <div class="flex flex-col justify-between">
+                        <p class="text-xs text-gray-600 tracking-wide font-bold">Velivolo</p>
+                        <h3 class="mt-1 text-lg text-blue-500">King Air 350i</h3>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <p class="text-xs text-gray-600 tracking-wide font-bold">Marche</p>
+                        <h3 class="mt-1 text-lg text-blue-500">I-45LIN</h3>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <p class="text-xs text-gray-600 tracking-wide font-bold">Intestato a</p>
+                        <h3 class="mt-1 text-lg text-blue-500">Royal Sky Academy&trade;</h3>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- End Third Row -->
@@ -183,6 +222,7 @@
                 location : JSON.parse(localStorage.getItem('location')),
                 user: JSON.parse(localStorage.getItem('user')),
                 latestFlights : [],
+                flight: {},
                 status: false,
                 radio: false
             }
@@ -206,8 +246,10 @@
             this.latestFlights = tempo
 
         },
-        computed : {
-            
+        methods : {
+            selectFlight(flight){
+                this.flight = flight;
+            }
         }
     }
 </script>
