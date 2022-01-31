@@ -25,7 +25,6 @@
 <script>
   import NavBar from './components/NavBar.vue'
   import Radio from './components/Radio.vue'
-  import axios from 'axios'
   //import Login from './views/Login.vue'
   export default {
     components: {
@@ -60,12 +59,12 @@
       },*/
       async submit() {
         if(this.form.token != ''){
-          let res = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=82`)
+          let res = await this.$axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=82`)
           localStorage.setItem('token', this.form.token)
           localStorage.setItem('user', JSON.stringify(res.data))
           localStorage.setItem('login', true)
           
-          let resp = await axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
+          let resp = await this.$axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
             headers: {
               'x-rapidapi-host': 'airport-info.p.rapidapi.com',
               'x-rapidapi-key': '0b3447fca9msh477e888d19607fap14e206jsndd35bba6653e'

@@ -2507,6 +2507,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+sweetalert2@11.x:
+  version "11.3.10"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.3.10.tgz#7d6c904c95edb50ac37200b1bd528fe47b827edf"
+  integrity sha512-/3nhG5QCREkPUndAbOF9h1IM7lgCIU/evsNXd/YUfa9eJ04M+hxksxIio8hhtH16UnWd2GvJ+zvFQ8H9hLRhsw==
+
 tailwindcss@^3.0.15:
   version "3.0.15"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.15.tgz#e4db219771eb7678a3bfd97b3f6c8fe20be0a410"
@@ -2704,6 +2709,13 @@ vue-router@^4.0.0-0:
   integrity sha512-CPXvfqe+mZLB1kBWssssTiWg4EQERyqJZes7USiqfW9B5N2x+nHlnsM1D3b5CaJ6qgCvMmYJnz+G0iWjNCvXrg==
   dependencies:
     "@vue/devtools-api" "^6.0.0-beta.18"
+
+vue-sweetalert2@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/vue-sweetalert2/-/vue-sweetalert2-5.0.2.tgz#b34f21f551aaefb88d94991daf7528913f66cefe"
+  integrity sha512-28pcpmvaFxwoXIUkOWwhZhmsV749jXxha8JicwPoSKyFKR5FhIaZU6UHO5WlUCLIVUI6sAWY6WngK2x/iXYwZg==
+  dependencies:
+    sweetalert2 "11.x"
 
 vue@^3.2.25:
   version "3.2.27"

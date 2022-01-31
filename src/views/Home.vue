@@ -215,6 +215,7 @@
 <script>
     import Radio from '../components/Radio.vue'
     import NavBar from '../components/NavBar.vue'
+
     export default {
         name: 'Home',
         data(){
@@ -235,6 +236,9 @@
 
         },
         mounted(){
+
+            this.checkBookings()
+
             let tempo = []
 
             this.user.flightsInfo.flights.map((item, i) => {
