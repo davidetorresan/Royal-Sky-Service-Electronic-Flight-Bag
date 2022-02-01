@@ -4,9 +4,7 @@ import router from './router'
 import axios from 'axios'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css';
-
 import './index.css'
-
 
 const app = createApp(App)
 app.config.productionTip = false
@@ -20,8 +18,6 @@ app.mixin({
     methods: {
         formatDate: (string) => {
             return string.split("-").reverse().join("-")
-            /*const date = new Date(string)
-            return date.value.split("-").reverse().join("-"); */
         },
         checkBookings: async () => {
             localStorage.removeItem('booking')

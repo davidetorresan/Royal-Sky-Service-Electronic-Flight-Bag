@@ -11,8 +11,8 @@
             minHeight: 800,
             minWidth: 1400,
             webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
-            nodeIntegration: true,
+                preload: path.join(__dirname, 'preload.js'),
+                nodeIntegration: true,
             },
             show: false,
         });

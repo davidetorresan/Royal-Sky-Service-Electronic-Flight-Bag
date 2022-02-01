@@ -96,7 +96,6 @@
         </div>
     </main>
     
-    <!--<p class="text-xs">Powered by <b>Royal Sky Service Weather System&trade;</b></p>-->   
 </template>
 <script>
     import NavBar from '../components/NavBar.vue'
@@ -118,7 +117,6 @@
             NavBar
         },
         mounted(){
-            //this.getweatherInfos("LIMF")
         },
         methods:{
             async getweatherInfos(icao){
@@ -130,13 +128,6 @@
                     this.windy = '<iframe class="w-full h-[450px]" src="https://embed.windy.com/embed2.html?lat='+ this.data.station.geometry.coordinates[1] +'&lon=' + this.data.station.geometry.coordinates[0] +'&detailLat=' + this.data.station.geometry.coordinates[1] + '&detailLon='+ this.data.station.geometry.coordinates[0] +'&zoom=8&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>'
                     this.searchIsSaved(this.data.icao)
                 }).catch(err => console.log(err))
-            /*
-                await axios.get(`https://royalskyservice.it/weather.php?encoded=true&icao=${icao}`)
-                .then(res => {
-                    this.loading = false;
-                    this.metar = res.data.data[0]
-                }).catch(err => console.log(err))
-            */
             },
             searchIsSaved(icao){
                 this.isSaved = false
@@ -153,14 +144,6 @@
                     this.saved.push(icao)
                     this.isSaved = true
                 }
-
-
-                /*
-                await axios.get(`https://royalskyservice.it/api/weather.php?encoded=true&icao=${icao}`)
-                .then(res => {
-                    this.loading = false;
-                }).catch(err => console.log(err))
-                */
 
             }
         }
