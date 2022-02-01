@@ -1,7 +1,5 @@
-# Vue 3 + Vite
+# **Royal Sky Service Electronic Flight Bag&trade;**
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+![screenshotHome](https://lh6.googleusercontent.com/JlW05bN7JXRdSriQbtUTyYdE-LWQmvHB5jGEtYPmRdN4eq_qJDmBANyjZjgUUxmj9oIhM1EgJV-30wxYGKR3=w1960-h4998-rw)
 
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+R
