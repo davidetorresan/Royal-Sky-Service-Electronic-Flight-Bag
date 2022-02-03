@@ -6,6 +6,7 @@ import Weather from '../views/Weather.vue'
 import Planning from '../views/Planning.vue'
 import Book from '../views/Book.vue'
 import Profile from '../views/Profile.vue'
+import BookFlight from '../views/BookFlight.vue'
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     path: '/book',
     name: 'Book',
     component: Book
+  },
+  {
+    path: '/book/:flight',
+    name: 'Book Flight',
+    component: BookFlight
   },
   {
     path: '/planning',

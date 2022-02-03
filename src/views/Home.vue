@@ -267,9 +267,9 @@
                 this.flight = flight;
             },
             async requestTransfer(icao){
-
+                let ICAO = icao.toUpperCase()
                 if(icao != ''){
-                    await this.$axios.get(`request_transfer.php?user=82&destiny=` + icao)
+                    await this.$axios.get(`request_transfer.php?user=82&destiny=` + ICAO)
                     .then(async () => {
                         
                         let res = await this.$axios.get(`get_pilot_data.php?id=82`)
@@ -296,7 +296,7 @@
                             position: 'top-end',
                             toast: true,
                             icon: 'success',
-                            title: 'Trasferito a ' + icao,
+                            title: 'Trasferito a ' + ICAO,
                             showConfirmButton: false,
                             timer: 4000,
                             footer: 'Royal Sky Service Dispatch System™'
