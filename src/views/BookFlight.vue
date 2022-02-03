@@ -50,7 +50,7 @@
                             position: 'top-end',
                             toast: true,
                             icon: 'success',
-                            title: 'Volo # ' + flightN + 'prenotato',
+                            title: 'Volo # ' + flightN + ' prenotato',
                             showConfirmButton: false,
                             timer: 2000,
                             footer: 'Royal Sky Service Booking System™'
