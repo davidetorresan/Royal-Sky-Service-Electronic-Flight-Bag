@@ -99,6 +99,7 @@
 </template>
 <script>
     import NavBar from '../components/NavBar.vue'
+    import axios from 'axios'
     export default {
         data(){
             return{
@@ -121,7 +122,7 @@
         methods:{
             async getweatherInfos(icao){
                 this.loading = true;
-                await this.$axios.get(`https://royalskyservice.it/api/weather.php?decoded=true&icao=${icao}`)
+                await axios.get(`https://royalskyservice.it/api/weather.php?decoded=true&icao=${icao}`)
                 .then(res => {
                     this.showWindy = true;
                     this.data = res.data.data[0]

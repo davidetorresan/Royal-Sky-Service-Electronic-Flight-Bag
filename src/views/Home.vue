@@ -74,6 +74,16 @@
                     <div class="flex flex-col justify-between">
                         <p class="text-xs text-gray-600 tracking-wide">Attualmente sei a</p>
                         <h3 class="mt-1 text-lg text-blue-500 font-bold">{{user.location}}</h3>
+                        <span class="cursor-pointer mt-4 text-xs text-blue-500" v-if="!toggleTransfer" @click="toggleTransfer = !toggleTransfer">Richiedi Trasferimento</span>
+                        <span class="cursor-pointer mt-4 text-xs text-blue-500" v-if="toggleTransfer" @click="toggleTransfer = !toggleTransfer">Annulla Trasferimento</span>
+                        <div class="flex items-center mt-5 justify-between">
+                            <input class="border-[1px] px-4 py-1 rounded-full w-[80%]" placeholder="Icao..." type="text" v-model="icao" v-if="toggleTransfer">
+                            <button @click="requestTransfer(icao)" v-if="toggleTransfer" class="bg-blue-500 p-2 rounded-full">
+                                <svg fill="#fff" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="12px">    
+                                    <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <!--<div class="bg-blue-500 p-1 xl:p-2 rounded-md">
                         <img src="assets/dish-2.png" alt="icon" class="w-auto h-6 xl:h-8 object-cover">
@@ -225,7 +235,9 @@
                 latestFlights : [],
                 flight: {},
                 status: false,
-                radio: false
+                radio: false,
+                toggleTransfer: false,
+                icao : ''
             }
         },
         components: {
@@ -253,6 +265,43 @@
         methods : {
             selectFlight(flight){
                 this.flight = flight;
+            },
+            async requestTransfer(icao){
+
+                await this.$axios.get(`request_transfer.php?user=82&destiny=` + icao)
+                    .then(async () => {
+                        
+                        let res = await this.$axios.get(`get_pilot_data.php?id=82`)
+
+                        let resp = await this.$axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
+                            headers: {
+                            'x-rapidapi-host': 'airport-info.p.rapidapi.com',
+                            'x-rapidapi-key': '0b3447fca9msh477e888d19607fap14e206jsndd35bba6653e'
+                            }
+                        })
+            
+                        localStorage.setItem('user', JSON.stringify(res.data))
+
+                        localStorage.setItem('location', JSON.stringify({
+                            icao: res.data.location, 
+                            latitude: resp.data.latitude, 
+                            longitude: resp.data.longitude 
+                        }))
+
+                        this.location = JSON.parse(localStorage.getItem('location'))
+                        this.user = JSON.parse(localStorage.getItem('user'))
+                        this.toggleTransfer = false
+                        this.$swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'success',
+                            title: 'Trasferito a ' + icao,
+                            showConfirmButton: false,
+                            timer: 4000
+                        })
+
+                    })
+                
             }
         }
     }
