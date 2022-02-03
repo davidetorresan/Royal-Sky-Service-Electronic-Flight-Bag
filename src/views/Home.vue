@@ -268,7 +268,8 @@
             },
             async requestTransfer(icao){
 
-                await this.$axios.get(`request_transfer.php?user=82&destiny=` + icao)
+                if(icao != ''){
+                    await this.$axios.get(`request_transfer.php?user=82&destiny=` + icao)
                     .then(async () => {
                         
                         let res = await this.$axios.get(`get_pilot_data.php?id=82`)
@@ -297,10 +298,12 @@
                             icon: 'success',
                             title: 'Trasferito a ' + icao,
                             showConfirmButton: false,
-                            timer: 4000
+                            timer: 4000,
+                            footer: 'Royal Sky Service Dispatch System™'
                         })
 
                     })
+                }
                 
             }
         }
