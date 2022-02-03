@@ -20,14 +20,20 @@ app.mixin({
             return string.split("-").reverse().join("-")
         },
         roundToH: (num) => {
-            const decimalHours = num;
-            const n = new Date(0,0);
-            n.setMinutes(+Math.round(decimalHours * 60)); 
-            const days = (n.getDate() - 1)
-            const hours = n.getHours()
-            const minutes = n.getMinutes()
+            if(num){
+                const decimalHours = num;
+                const n = new Date(0,0);
+                n.setMinutes(+Math.round(decimalHours * 60)); 
+                const days = (n.getDate() - 1)
+                const hours = n.getHours()
+                const minutes = n.getMinutes()
 
-            return hours + ':' + minutes
+                return hours + ':' + minutes
+            }else{
+                return " "
+            }
+            
+
         },
         checkBookings: async () => {
             localStorage.removeItem('booking')

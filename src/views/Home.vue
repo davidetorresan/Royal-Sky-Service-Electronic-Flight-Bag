@@ -198,7 +198,7 @@
                     </div>
                     <div class="flex flex-col justify-between">
                         <p class="text-xs text-gray-600 tracking-wide font-bold">Durata</p>
-                        <h3 class="mt-1 text-lg text-blue-500">{{roundToH(flight.duration)}} h.</h3>
+                        <h3 class="mt-1 text-lg text-blue-500">{{roundToH(flight.duration) == "NaN : NaN" ? '' : roundToH(flight.duration) }} h.</h3>
                     </div>
                 </div>
                 <hr>
