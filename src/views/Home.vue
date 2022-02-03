@@ -76,9 +76,9 @@
                         <h3 class="mt-1 text-lg text-blue-500 font-bold">{{user.location}}</h3>
                         <span class="cursor-pointer mt-4 text-xs text-blue-500" v-if="!toggleTransfer" @click="toggleTransfer = !toggleTransfer">Richiedi Trasferimento</span>
                         <span class="cursor-pointer mt-4 text-xs text-blue-500" v-if="toggleTransfer" @click="toggleTransfer = !toggleTransfer">Annulla Trasferimento</span>
-                        <div class="flex items-center mt-5 justify-between">
-                            <input class="border-[1px] px-4 py-1 rounded-full w-[80%]" placeholder="Icao..." type="text" v-model="icao" v-if="toggleTransfer">
-                            <button @click="requestTransfer(icao)" v-if="toggleTransfer" class="bg-blue-500 p-2 rounded-full">
+                        <div class="flex items-center mt-5 justify-between relative" v-if="toggleTransfer" >
+                            <input class="border-[1px] px-4 py-1 rounded-full w-[100%]" maxlength="4" placeholder="Icao..." type="text" v-model="icao" v-if="toggleTransfer">
+                            <button @click="requestTransfer(icao)" class="bg-blue-500 p-2 rounded-full absolute top-50 right-[3px]">
                                 <svg fill="#fff" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="12px">    
                                     <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"/>
                                 </svg>
@@ -198,7 +198,7 @@
                     </div>
                     <div class="flex flex-col justify-between">
                         <p class="text-xs text-gray-600 tracking-wide font-bold">Durata</p>
-                        <h3 class="mt-1 text-lg text-blue-500">{{flight.distance}} h.</h3>
+                        <h3 class="mt-1 text-lg text-blue-500">{{roundToH(flight.duration)}} h.</h3>
                     </div>
                 </div>
                 <hr>
