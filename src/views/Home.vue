@@ -136,7 +136,6 @@
             <div class="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6">
                 <div class="flex justify-between items-center">
                     <h2 class="text-sm text-gray-600 font-bold tracking-wide">Ultimi voli effttuati</h2>
-                    <a href="#" class="px-4 py-2 text-xs bg-blue-100 text-blue-500 rounded uppercase tracking-wider font-semibold hover:bg-blue-300">Vedi Tutti</a>
                 </div>
                 <ul class="divide-y-2 divide-gray-100 overflow-x-auto w-full">
 
@@ -250,6 +249,7 @@
         mounted(){
 
             this.checkBookings()
+            this.checkUserData()
 
             let tempo = []
 

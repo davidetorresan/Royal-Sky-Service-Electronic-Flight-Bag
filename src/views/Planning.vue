@@ -33,8 +33,16 @@
         data : {}
       }
     },
+    mounted(){
+    },
     created(){
+
       this.data = JSON.parse(localStorage.getItem('booking'))
+
+      if(!this.data.booked){
+        this.$router.push('/book')
+      }
+
     },
     methods:{
       async deleteBooking(flightN, plane){
