@@ -37,6 +37,7 @@
         login : false,
         form: {
           token: "",
+          userID: null
         },
       }
     },
@@ -59,35 +60,44 @@
       },*/
       async submit() {
         if(this.form.token != ''){
-          let res = await this.$axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=82`)
-          localStorage.setItem('token', this.form.token)
-          localStorage.setItem('user', JSON.stringify(res.data))
-          localStorage.setItem('login', true)
-          
-          let resp = await this.$axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
-            headers: {
-              'x-rapidapi-host': 'airport-info.p.rapidapi.com',
-              'x-rapidapi-key': '0b3447fca9msh477e888d19607fap14e206jsndd35bba6653e'
-            }
-          })
 
-          localStorage.setItem('location', JSON.stringify({
-            icao: res.data.location, 
-            latitude: resp.data.latitude, 
-            longitude: resp.data.longitude 
-          }))
+          await this.$axios.get('/auth/check_tokens.php?token=' + this.form.token)
+            .then(async (response) => {
+              if(response.data.status == 404){
+                alert(response.data.message)
+              }else{
+                localStorage.setItem('token', JSON.stringify(response.data))
+                this.userID = response.data.user
+                
+                let res = await this.$axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=${this.userID}`)
+                localStorage.setItem('user', JSON.stringify(res.data))
+                localStorage.setItem('login', true)
+                
+                let resp = await this.$axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
+                  headers: {
+                    'x-rapidapi-host': 'airport-info.p.rapidapi.com',
+                    'x-rapidapi-key': '0b3447fca9msh477e888d19607fap14e206jsndd35bba6653e'
+                  }
+                })
 
-          this.login = true
+                localStorage.setItem('location', JSON.stringify({
+                  icao: res.data.location, 
+                  latitude: resp.data.latitude, 
+                  longitude: resp.data.longitude 
+                }))
 
-          let bookings = await this.$axios.get('get_user_booked_routes.php?id=82')
+                this.login = true
 
-          if(bookings.data){
-            localStorage.setItem('booking', JSON.stringify({
-              booked: true,
-              data : bookings.data
-            }))
-          }
+                let bookings = await this.$axios.get('get_user_booked_routes.php?id=' + this.userID)
 
+                if(bookings.data){
+                  localStorage.setItem('booking', JSON.stringify({
+                    booked: true,
+                    data : bookings.data
+                  }))
+                }
+              }
+            })
         }
       },
     }
