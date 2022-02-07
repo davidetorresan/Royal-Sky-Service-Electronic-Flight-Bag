@@ -30,7 +30,8 @@
     },
     data(){
       return{
-        data : {}
+        data : {},
+        user: null
       }
     },
     mounted(){
@@ -38,6 +39,7 @@
     created(){
 
       this.data = JSON.parse(localStorage.getItem('booking'))
+      this.user = JSON.parse(localStorage.getItem('token'))
 
       if(!this.data.booked){
         this.$router.push('/book')
@@ -48,7 +50,7 @@
       async deleteBooking(flightN, plane){
         console.log(flightN)
         console.log(plane)
-        this.$axios.get(`remove_booking.php?route=${this.data.routeID}&plane=${plane}&id=82`)
+        this.$axios.get(`remove_booking.php?route=${this.data.routeID}&plane=${plane}&id=${this.user.user}`)
           .then(() => {
             this.$swal.fire({
               position: 'top-end',

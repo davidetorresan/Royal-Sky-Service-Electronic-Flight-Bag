@@ -111,13 +111,15 @@
                 loading : false,
                 showWindy : false,
                 windy : '',
-                location : JSON.parse(localStorage.getItem('location'))
+                location : JSON.parse(localStorage.getItem('location')),
+                user: null
             }
         },
         components: {
             NavBar
         },
         mounted(){
+            this.user = JSON.parse(localStorage.getItem('token'))
         },
         methods:{
             async getweatherInfos(icao){

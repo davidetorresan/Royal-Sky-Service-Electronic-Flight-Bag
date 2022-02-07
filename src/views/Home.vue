@@ -236,7 +236,8 @@
                 status: false,
                 radio: false,
                 toggleTransfer: false,
-                icao : ''
+                icao : '',
+                token: null
             }
         },
         components: {
@@ -250,6 +251,7 @@
 
             this.checkBookings()
             this.checkUserData()
+            this.token = JSON.parse(localStorage.getItem('token'))
 
             let tempo = []
 
@@ -269,7 +271,7 @@
             async requestTransfer(icao){
                 let ICAO = icao.toUpperCase()
                 if(icao != ''){
-                    await this.$axios.get(`request_transfer.php?user=82&destiny=` + ICAO)
+                    await this.$axios.get(`request_transfer.php?user=${this.token.user}&destiny=` + icao)
                     .then(async () => {
                         
                         let res = await this.$axios.get(`get_pilot_data.php?id=82`)
@@ -296,7 +298,7 @@
                             position: 'top-end',
                             toast: true,
                             icon: 'success',
-                            title: 'Trasferito a ' + ICAO,
+                            title: 'Trasferito a ' + icao,
                             showConfirmButton: false,
                             timer: 4000,
                             footer: 'Royal Sky Service Dispatch System™'

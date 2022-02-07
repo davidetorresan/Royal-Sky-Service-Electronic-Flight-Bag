@@ -83,10 +83,13 @@
         toggleBusiness: false,
         toggleAerotaxi: false,
         toggleOther: false,
+        user: null
       }
     },
     async mounted(){
-      await this.$axios.get('get_free_routes.php?id=82')
+      this.user = JSON.parse(localStorage.getItem('token'))
+
+      await this.$axios.get('get_free_routes.php?id=' + this.user.user)
         .then((res) => {
           this.routes = res.data
         })

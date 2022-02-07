@@ -39,17 +39,19 @@
         },
         data(){
             return{
-                planes: []
+                planes: [],
+                user: null
             }
         },
         async mounted() {
+            this.user = JSON.parse(localStorage.getItem('token'))
             await this.$axios.get(`get_free_planes.php?id=82&route=${this.$route.params.flight}`)
                 .then((res) => this.planes = res.data)
                     .then(() => console.log(this.planes))
         },
         methods:{
             async bookRoute(route, plane, flightN){
-                this.$axios.get(`book.php?route=${route}&plane=${plane}&id=82`)
+                this.$axios.get(`book.php?route=${route}&plane=${plane}&id=${this.user.user}`)
                     .then(() => {
                         this.$swal.fire({
                             position: 'top-end',
