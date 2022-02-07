@@ -62,7 +62,7 @@
                         })
                     })
                         .then(() => {
-                            this.checkBookings()
+                            this.checkBookings(route)
                             setTimeout(() => {
                                 this.$router.push('/planning')
                             }, 2000)

@@ -1,8 +1,8 @@
 <template>
     <NavBar />
     <main class="container mx-w-6xl mx-auto py-4 h-[88.5vh]">
-      <div class="flex flex-col">
-        <div class="w-[50%] p-6 rounded-2xl bg-white flex justify-between items-center text-white relative">
+      <div class="flex justify-between">
+        <div class="w-[48%] p-6 rounded-2xl bg-white flex justify-between items-center text-white relative">
           <div class="text-black">
             <p class="font-bold text-xs">Partenza</p>
             <p>{{data.data.departure}}</p>
@@ -14,7 +14,7 @@
             <p>{{data.data.arrival}}</p>
           </div>
         </div>
-        <div class="w-[50%] p-6 rounded-2xl bg-white flex justify-between items-center text-white relative mt-6">
+        <div class="w-[48%] p-6 rounded-2xl bg-white flex justify-between items-center text-white relative mt-6">
           <div class="text-black">
             <div @click="deleteBooking(data.data.flight, data.data.fleet_id)" class="cursor-pointer">x Rimuovi prenotazione</div>
           </div>
@@ -48,7 +48,7 @@
       async deleteBooking(flightN, plane){
         console.log(flightN)
         console.log(plane)
-        /*this.$axios.get(`remove_booking.php?flight=${flightN}&plane=${plane}&id=82`)
+        this.$axios.get(`remove_booking.php?route=${this.data.routeID}&plane=${plane}&id=82`)
           .then(() => {
             this.$swal.fire({
               position: 'top-end',
@@ -64,7 +64,7 @@
               setTimeout(() => {
                 this.$router.push('/book')
               }, 2000)
-            })*/
+            })
       }
     }
 }

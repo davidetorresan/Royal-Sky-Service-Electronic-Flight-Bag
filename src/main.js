@@ -41,7 +41,7 @@ app.mixin({
             localStorage.setItem('user', JSON.stringify(temp.data))
             
         },
-        checkBookings: async () => {
+        checkBookings: async (routeID) => {
             localStorage.removeItem('booking')
 
             let bookings = await axios.get('https://royalskyservice.it/api/get_user_booked_routes.php?id=82')
@@ -49,7 +49,8 @@ app.mixin({
             if(bookings.data.status != 0){
                 localStorage.setItem('booking', JSON.stringify({
                     booked: true,
-                    data : bookings.data
+                    data : bookings.data,
+                    routeID: routeID ? routeID : null
                 }))
             }
             else{
