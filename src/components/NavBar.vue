@@ -14,8 +14,8 @@
             </a>
             <ul class="flex items-center space-x-4 text-sm font-semibold">
                 <li><router-link to="/" class="px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Home</router-link></li>
-                <li v-if="!data.booked"><router-link to="/book" class="transition-all px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Prenotazione</router-link></li>
-                <li v-if="data.booked"><router-link to="/planning" class="transition-all px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Pianificazione</router-link></li>
+                <li v-if="!hasBookings"><router-link to="/book" class="transition-all px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Prenotazione</router-link></li>
+                <li v-if="hasBookings"><router-link to="/planning" class="transition-all px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Pianificazione</router-link></li>
                 <li><router-link to="/missions" class="transition-all px-2 xl:px-4 py-2 text-gray-300 rounded-md hover:bg-gray-200 pointer-events-none">Missioni</router-link></li>
                 <li><router-link to="/weather" class="transition-all px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Meteo</router-link></li>
             </ul>
@@ -135,6 +135,10 @@
             //isLoggedIn : function(){ return this.$store.getters.ciao }
         },
         mounted(){
+            window.addEventListener('booking-localstorage-changed', () => {
+                const data = JSON.parse(localStorage.getItem('booking'))
+                if(data.booked == true) this.hasBookings = data.booked
+            });
             const data = JSON.parse(localStorage.getItem('booking'))
             if(data.booked == true) this.hasBookings = data.booked
         },

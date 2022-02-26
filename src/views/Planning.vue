@@ -61,6 +61,10 @@
               timer: 2000,
               footer: 'Royal Sky Service Booking System™'
             })
+            localStorage.setItem('booking', JSON.stringify({
+              booked: false,
+              data : null
+            }))
           })
             .then(() => {
               setTimeout(() => {

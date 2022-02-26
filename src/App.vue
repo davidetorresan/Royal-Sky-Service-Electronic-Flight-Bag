@@ -46,10 +46,20 @@
       /*if(!localStorage.getItem('user')){
         this.getUser()
       }*/
+      setInterval(() => {
+        this.$axios.post('get_users_online.php')
+          .then((res) => localStorage.setItem('onlineUsers', res.data))
+            .catch((err) => console.log(err))
+      }, 1000)
 
       if(localStorage.getItem('login'))
         this.login = true
       
+    },
+    beforeUnmount(){
+      this.$axios.post('set_user_online.php?id=' + this.userID)
+        .then(() => localStorage.setItem('isOnline', false))
+          .catch((err) => console.log(err))
     },
     methods:{
       /*
@@ -72,6 +82,7 @@
                 let res = await this.$axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=${this.userID}`)
                 localStorage.setItem('user', JSON.stringify(res.data))
                 localStorage.setItem('login', true)
+                localStorage.setItem('isOnline', true)
                 
                 let resp = await this.$axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
                   headers: {
