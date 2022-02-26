@@ -12,7 +12,6 @@
     },
     data(){
       return{
-        //data: booking
       }
     },
   }

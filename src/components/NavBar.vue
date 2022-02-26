@@ -126,6 +126,7 @@
             return {
                 data: {},
                 open: false,
+                hasBookings: false,
                 user: JSON.parse(localStorage.getItem('user')),
                 //hours : 0
             }
@@ -134,7 +135,8 @@
             //isLoggedIn : function(){ return this.$store.getters.ciao }
         },
         mounted(){
-            this.data = JSON.parse(localStorage.getItem('booking'))
+            const data = JSON.parse(localStorage.getItem('booking'))
+            if(data.booked == true) this.hasBookings = data.booked
         },
         created(){
 

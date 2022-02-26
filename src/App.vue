@@ -90,14 +90,20 @@
 
                 let bookings = await this.$axios.get('get_user_booked_routes.php?id=' + this.userID)
 
-                if(bookings.data){
+                if(!bookings.data.error){
                   localStorage.setItem('booking', JSON.stringify({
                     booked: true,
                     data : bookings.data
                   }))
+                }else{
+                  localStorage.setItem('booking', JSON.stringify({
+                    booked: false,
+                    data : null
+                  }))
                 }
               }
             })
+            location.reload()
         }
       },
     }
