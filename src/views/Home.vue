@@ -61,6 +61,7 @@
 
         </div>
         <!-- End First Row -->
+        <OnlineUsers />
         <!-- Start Second Row -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 xl:p-0 gap-4 xl:gap-6">
             <div class="col-span-1 md:col-span-2 lg:col-span-4 flex justify-between">
@@ -224,6 +225,7 @@
 <script>
     import Radio from '../components/Radio.vue'
     import NavBar from '../components/NavBar.vue'
+    import OnlineUsers from '../components/OnlineUsers.vue'
 
     export default {
         name: 'Home',
@@ -242,7 +244,8 @@
         },
         components: {
             Radio,
-            NavBar
+            NavBar,
+            OnlineUsers
         },
         created(){
 

@@ -35,45 +35,24 @@
     data(){
       return{
         login : false,
+        userID: null,
         form: {
           token: "",
           userID: null
         },
       }
     },
-    mounted(){
+    mounted(){ 
 
-      /*if(!localStorage.getItem('user')){
-        this.getUser()
-      }*/
-      this.$axios.get(`add_users_online.php?id=${this.userID}&timestamp=${Date.now()}&type=true&method=insert`)
-        .then((res) => {
-          if(res.data.status === 200){
-            localStorage.setItem('isOnline', true)
-          }
-        })          
-      setInterval(() => {
-        this.$axios.post('get_users_online.php')
-          .then((res) => localStorage.setItem('usersOnline', JSON.stringify(res.data)))
-            .catch((err) => console.log(err))
-      }, 1000)
-
-      if(localStorage.getItem('login'))
-        this.login = true
+      if(localStorage.getItem('login')) this.login = true
       
     },
-    beforeUnmount(){
-      this.$axios.post('set_user_online.php?id=' + this.userID)
+    async beforeUnmount(){
+      this.$axios.post('add_users_online.php?id=' + this.userID + '&method=delete')
         .then(() => localStorage.setItem('isOnline', false))
           .catch((err) => console.log(err))
     },
     methods:{
-      /*
-      async getUser(){
-        let response = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=82`)
-        this.user = response.data
-        localStorage.setItem('user', JSON.stringify(this.user))
-      },*/
       async submit() {
         if(this.form.token != ''){
 
