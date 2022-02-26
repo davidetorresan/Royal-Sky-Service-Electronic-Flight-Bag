@@ -54,7 +54,7 @@
         })          
       setInterval(() => {
         this.$axios.post('get_users_online.php')
-          .then((res) => localStorage.setItem('onlineUsers', JSON.stringify(res.data)))
+          .then((res) => localStorage.setItem('usersOnline', JSON.stringify(res.data)))
             .catch((err) => console.log(err))
       }, 1000)
 
