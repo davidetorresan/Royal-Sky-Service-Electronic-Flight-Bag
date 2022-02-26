@@ -4,7 +4,7 @@
     <div v-else class="w-screen h-screen flex items-center justify-center">
       <main class="w-[500px] bg-white p-8 md:p-12 my-10 rounded-lg shadow-2xl">
         <section>
-          <img src="../../assets/logo-v2.png" class="w-[80%] mx-auto" alt="">
+          <img src="../assets/logo-v2.png" class="w-[80%] mx-auto" alt="">
           <h3 class="text-left font-bold text-2xl">Pronto ad usare la Royal E.F.B.?</h3>
           <p class="text-gray-600 pt-2">Accedi ora al tuo account.</p>
         </section>

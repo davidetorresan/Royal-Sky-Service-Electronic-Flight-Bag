@@ -31,11 +31,11 @@
     "productName": "ROY Electronic Flight Bag",
     "copyright": "Copyright © 2021 Royal Sky Service",
     "mac": {
-      "icon": "assets/icon.icns",
+      "icon": "./assets/icon.icns",
       "category": "public.app-category.utilities"
     },
     "win": {
-      "icon": "assets/icon.png"
+      "icon": "./assets/icon.png"
     },
     "nsis": {
       "oneClick": false,
