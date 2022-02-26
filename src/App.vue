@@ -46,9 +46,15 @@
       /*if(!localStorage.getItem('user')){
         this.getUser()
       }*/
+      this.$axios.get(`add_users_online.php?id=${this.userID}&timestamp=${Date.now()}&type=true&method=insert`)
+        .then((res) => {
+          if(res.data.status === 200){
+            localStorage.setItem('isOnline', true)
+          }
+        })          
       setInterval(() => {
         this.$axios.post('get_users_online.php')
-          .then((res) => localStorage.setItem('onlineUsers', res.data))
+          .then((res) => localStorage.setItem('onlineUsers', JSON.stringify(res.data)))
             .catch((err) => console.log(err))
       }, 1000)
 
@@ -82,7 +88,18 @@
                 let res = await this.$axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=${this.userID}`)
                 localStorage.setItem('user', JSON.stringify(res.data))
                 localStorage.setItem('login', true)
-                localStorage.setItem('isOnline', true)
+
+                this.$axios.get('get_users_online.php')
+                  .then((res) => {
+                    localStorage.setItem('usersOnline', JSON.stringify(res.data))
+                  })
+
+                this.$axios.get(`add_users_online.php?id=${this.userID}&timestamp=${Date.now()}&type=true&method=insert`)
+                  .then((res) => {
+                    if(res.data.status === 200){
+                      localStorage.setItem('isOnline', true)
+                    }
+                  })                    
                 
                 let resp = await this.$axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
                   headers: {
