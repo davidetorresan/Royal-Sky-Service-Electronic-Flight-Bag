@@ -2,6 +2,7 @@
     const path = require('path');
     const { app, BrowserWindow, TouchBar, nativeImage, systemPreferences } = require('electron')
     const { TouchBarLabel, TouchBarButton } = TouchBar
+    const config = require('../config.json')
 
     const isDev = process.env.IS_DEV == "true" ? true : false;
 
@@ -60,6 +61,31 @@
             ? `file://${path.join(__dirname, '../splash.html')}`
             : `file://${path.join(__dirname, '../dist/splash.html')}`
         );
+
+        if(config.isLoggedIn){
+            if (process.platform === 'darwin' && config.macOsUser.touchID) {
+                systemPreferences.promptTouchID('TouchID per accedere').then(success => {
+                    setTimeout(() => {
+                        splash.close()
+                        mainWindow.show()
+                    }, 1000)
+                }).catch(err => {
+                    console.log(err)
+                })
+            }  
+            if (process.platform !== 'darwin') {
+                setTimeout(() => {
+                    splash.close()
+                    mainWindow.show()
+                }, 2000)
+            }
+        }else{
+            setTimeout(() => {
+                splash.close()
+                mainWindow.show()
+            }, 5000)
+        }
+
         if (process.platform !== 'darwin') {
             setTimeout(() => {
                 splash.close()

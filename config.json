@@ -1,0 +1,7 @@
+{
+    "isLoggedIn" : false,
+    "macOsUser" : {
+        "touchID": true,
+        "touchBar": true
+    }
+}
