@@ -10,7 +10,7 @@
             <p class="text-white text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>
         <div class="w-[40%]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="600px" alt="">
         </div>
     </div>
     <div class="w-full bg-white flex items-center justify-between px-[56.5px] py-[30px]">
@@ -18,128 +18,128 @@
         <button class="bg-yellow-500 px-[20px] rounded-md py-[4px] text-white" @click="this.$router.push('/academy/ratings')">Scopri di più</button>
     </div>
     <div class="w-full bg-white flex flex-wrap items-center justify-between px-[56.5px] pb-[90px]">
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div> 
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div> 
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div> 
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div> 
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
             <p class="text-black text-[23px] font-bold mt-2 leading-[30px]">20. Virate accentuate e assetti inusuali</p>
             <p class="text-black text-[15px] mt-2">by <b>Davide Torresan</b></p>
         </div>      
-        <div class="w-[300px] mb-[40px]">
-            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="300px" alt="">
+        <div class="w-[24%] mb-[40px]">
+            <img src="https://i.ytimg.com/vi/QZ2BZPQJPD4/maxresdefault.jpg" width="100%" alt="">
             <div class="w-[100%] flex mt-[15px]">
                 <div class="px-[15px] rounded-md py-[1px] text-[12px] text-white bg-red-600">PPL</div>
             </div>
