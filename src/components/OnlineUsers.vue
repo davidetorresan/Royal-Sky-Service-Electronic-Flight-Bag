@@ -30,10 +30,9 @@
             this.$axios.post(`add_users_online.php?id=${this.user.gvauser_id}&timestamp=${Date.now()}&type=true&method=insert`)
                 .then((res) => {
                 if(res.data.status === 200){
-                    console.log(res)
                     localStorage.setItem('isOnline', true)
                 }
-            }) 
+            }).catch((err) => console.log(err))
         },
         mounted(){
             setInterval(() => {

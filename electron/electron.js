@@ -1,6 +1,7 @@
     // electron/electron.js
     const path = require('path');
-    const { app, BrowserWindow } = require('electron');
+    const { app, BrowserWindow, TouchBar, nativeImage } = require('electron')
+    const { TouchBarLabel, TouchBarButton } = TouchBar
 
     const isDev = process.env.IS_DEV == "true" ? true : false;
 
@@ -22,6 +23,27 @@
             ? 'http://localhost:3000'
             : `file://${path.join(__dirname, '../dist/index.html')}`
         );
+
+        const image = nativeImage.createFromPath('./assets/icon.png').resize({ height: 30 });
+
+        const label = new TouchBarLabel({
+            label: 'Royal Sky Service™ Electronic Flight Bag',
+            accessibilityLabel: 'Button looking like a label',
+            backgroundColor: '#000',
+        });
+        const button = new TouchBarButton({
+            icon: image,
+            iconPosition: 'left',
+            label: '',
+            accessibilityLabel: '',
+            backgroundColor: '#000',
+        });
+
+        const touchBar = new TouchBar({
+            items: [label, button], 
+        });
+
+        mainWindow.setTouchBar(touchBar);
         
         //mainWindow.removeMenu()
         
