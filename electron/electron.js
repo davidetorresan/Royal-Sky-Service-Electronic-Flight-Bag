@@ -1,6 +1,6 @@
     // electron/electron.js
     const path = require('path');
-    const { app, BrowserWindow, TouchBar, nativeImage } = require('electron')
+    const { app, BrowserWindow, TouchBar, nativeImage, systemPreferences } = require('electron')
     const { TouchBarLabel, TouchBarButton } = TouchBar
 
     const isDev = process.env.IS_DEV == "true" ? true : false;
@@ -60,6 +60,14 @@
             ? `file://${path.join(__dirname, '../splash.html')}`
             : `file://${path.join(__dirname, '../dist/splash.html')}`
         );
+        systemPreferences.promptTouchID('TouchID per accedere').then(success => {
+            setTimeout(() => {
+                splash.close()
+                mainWindow.show()
+            }, 5000)
+        }).catch(err => {
+            console.log(err)
+        })
         setTimeout(() => {
             splash.close()
             mainWindow.show()
