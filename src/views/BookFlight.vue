@@ -45,7 +45,7 @@
         },
         async mounted() {
             this.user = JSON.parse(localStorage.getItem('token'))
-            await this.$axios.get(`get_free_planes.php?id=82&route=${this.$route.params.flight}`)
+            await this.$axios.get(`get_free_planes.php?id=${this.user.user}&route=${this.$route.params.flight}`)
                 .then((res) => this.planes = res.data)
                     .then(() => console.log(this.planes))
         },
@@ -64,7 +64,7 @@
                         })
                     })
                         .then(() => {
-                            this.checkBookings(route)
+                            this.checkBookings(this.user.user, route)
                             setTimeout(() => {
                                 this.$router.push('/planning')
                             }, 2000)

@@ -47,7 +47,7 @@
       if(localStorage.getItem('login')) this.login = true
       
     },
-    async beforeUnmount(){
+    beforeUnmount(){
       this.$axios.post('add_users_online.php?id=' + this.userID + '&method=delete')
         .then(() => localStorage.setItem('isOnline', false))
           .catch((err) => console.log(err))

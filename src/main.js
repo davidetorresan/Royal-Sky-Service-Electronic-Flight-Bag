@@ -35,16 +35,16 @@ app.mixin({
             
 
         },
-        checkUserData: async () => {
-            let temp = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=82`)
+        checkUserData: async (user) => {
+            let temp = await axios.get(`https://royalskyservice.it/api/get_pilot_data.php?id=${user}`)
 
             localStorage.setItem('user', JSON.stringify(temp.data))
             
         },
-        checkBookings: async (routeID) => {
+        checkBookings: async (user, routeID) => {
             localStorage.removeItem('booking')
 
-            let bookings = await axios.get('https://royalskyservice.it/api/get_user_booked_routes.php?id=82')
+            let bookings = await axios.get('https://royalskyservice.it/api/get_user_booked_routes.php?id=' + user)
 
             if(bookings.data.status != 0){
                 localStorage.setItem('booking', JSON.stringify({

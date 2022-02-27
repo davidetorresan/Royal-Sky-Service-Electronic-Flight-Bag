@@ -252,9 +252,10 @@
         },
         mounted(){
 
-            this.checkBookings()
-            this.checkUserData()
+
             this.token = JSON.parse(localStorage.getItem('token'))
+            this.checkBookings(this.token.user)
+            this.checkUserData(this.token.user)
 
             let tempo = []
 
@@ -277,7 +278,7 @@
                     await this.$axios.get(`request_transfer.php?user=${this.token.user}&destiny=` + icao)
                     .then(async () => {
                         
-                        let res = await this.$axios.get(`get_pilot_data.php?id=82`)
+                        let res = await this.$axios.get(`get_pilot_data.php?id=${this.token.user}`)
 
                         let resp = await this.$axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
                             headers: {
