@@ -61,7 +61,7 @@ app.mixin({
             }
 
             return bookings.data
-        }
+        },
     },
 })
 

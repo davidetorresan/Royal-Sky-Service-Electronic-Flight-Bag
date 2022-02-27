@@ -1,5 +1,5 @@
 <template>
-    <nav class="p-4 md:py-8 xl:px-0 md:container md:mx-w-6xl md:mx-auto sticky top-0 bg-gray-100 z-30">
+    <nav class="p-4 md:py-8 md:w-full px-[56.5px] md:mx-w-6xl md:mx-auto sticky top-0 bg-gray-100 z-30">
         <div class="hidden lg:flex lg:justify-between lg:items-center">
             <a href="#" class="flex items-start gap-2 group">
                 <div class="bg-white text-white p-2 rounded-md">
@@ -18,6 +18,7 @@
                 <li v-if="hasBookings"><router-link to="/planning" class="transition-all px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Pianificazione</router-link></li>
                 <li><router-link to="/missions" class="transition-all px-2 xl:px-4 py-2 text-gray-300 rounded-md hover:bg-gray-200 pointer-events-none">Missioni</router-link></li>
                 <li><router-link to="/weather" class="transition-all px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Meteo</router-link></li>
+                <li><router-link to="/academy" class="transition-all px-2 xl:px-4 py-2 text-gray-500 rounded-md hover:bg-gray-200">Academy</router-link></li>
             </ul>
             <ul class="flex space-x-2 xl:space-x-4 text-sm font-semibold">
                 <li>

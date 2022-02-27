@@ -85,23 +85,6 @@
                 mainWindow.show()
             }, 5000)
         }
-
-        if (process.platform !== 'darwin') {
-            setTimeout(() => {
-                splash.close()
-                mainWindow.show()
-            }, 5000)
-        }
-        if (process.platform === 'darwin') {
-            systemPreferences.promptTouchID('TouchID per accedere').then(success => {
-                setTimeout(() => {
-                    splash.close()
-                    mainWindow.show()
-                }, 1000)
-            }).catch(err => {
-                console.log(err)
-            })
-        }        
     }
 
     app.whenReady().then(() => {

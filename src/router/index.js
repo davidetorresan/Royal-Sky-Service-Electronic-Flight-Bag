@@ -7,6 +7,8 @@ import Planning from '../views/Planning.vue'
 import Book from '../views/Book.vue'
 import Profile from '../views/Profile.vue'
 import BookFlight from '../views/BookFlight.vue'
+import Academy from '../views/Academy.vue'
+import Ratings from '../views/Ratings.vue'
 
 const routes = [
   {
@@ -28,6 +30,16 @@ const routes = [
     path: '/missions',
     name: 'Missions',
     component: Missions
+  },
+  {
+    path: '/academy',
+    name: 'Academy',
+    component: Academy
+  },
+  {
+    path: '/academy/ratings',
+    name: 'Ratings',
+    component: Ratings
   },
   {
     path: '/book',
