@@ -14,8 +14,8 @@
         </div>
     </div>
     <div class="w-full bg-white flex items-center justify-between px-[56.5px] py-[30px]">
-        <h3 class="font-bold text-[30px]">Pronto per conseguire un nuovo Type Rating?</h3>
-        <button class="bg-yellow-500 px-[20px] rounded-md py-[4px] text-white" @click="this.$router.push('/academy/ratings')">Scopri di più</button>
+        <h3 class="font-bold text-[30px]">Pronto per conseguire una nuova abilitazione?</h3>
+        <button class="bg-yellow-500 px-[20px] rounded-md py-[4px] text-white" @click="this.$router.push('/academy/ratings')">Scopri di più ➝</button>
     </div>
     <div class="w-full bg-white flex flex-wrap items-center justify-between px-[56.5px] pb-[90px]">
         <div class="w-[24%] mb-[40px]">

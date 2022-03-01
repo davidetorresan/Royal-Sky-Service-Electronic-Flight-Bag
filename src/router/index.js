@@ -9,6 +9,8 @@ import Profile from '../views/Profile.vue'
 import BookFlight from '../views/BookFlight.vue'
 import Academy from '../views/Academy.vue'
 import Ratings from '../views/Ratings.vue'
+import IndexAdmin from '../views/IndexAdmin.vue'
+import AcademyAdmin from'../views/AcademyAdmin.vue'
 
 const routes = [
   {
@@ -60,6 +62,16 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/admin',
+    name: 'IndexAdmin',
+    component: IndexAdmin
+  },
+  {
+    path: '/admin/academy',
+    name: 'AcademyAdmin',
+    component: AcademyAdmin
   },
 ]
 
