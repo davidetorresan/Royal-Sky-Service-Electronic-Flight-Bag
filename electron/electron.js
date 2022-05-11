@@ -3,8 +3,11 @@
     const { app, BrowserWindow, TouchBar, nativeImage, systemPreferences } = require('electron')
     const { TouchBarLabel, TouchBarButton } = TouchBar
     const config = require('../config.json')
+    require('./acars')
 
     const isDev = process.env.IS_DEV == "true" ? true : false;
+// src/background.js
+
 
     function createWindow() {
         const mainWindow = new BrowserWindow({
@@ -13,8 +16,10 @@
             minHeight: 800,
             minWidth: 1400,
             webPreferences: {
+                nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+                contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
+                enableRemoteModule: true,
                 preload: path.join(__dirname, 'preload.js'),
-                nodeIntegration: true,
             },
             show: false,
         });
