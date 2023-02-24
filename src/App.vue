@@ -83,7 +83,7 @@
                 let resp = await this.$axios.get(`https://airport-info.p.rapidapi.com/airport?icao=${res.data.location}`, {
                   headers: {
                     'x-rapidapi-host': 'airport-info.p.rapidapi.com',
-                    'x-rapidapi-key': '0b3447fca9msh477e888d19607fap14e206jsndd35bba6653e'
+                    'x-rapidapi-key': ''
                   }
                 })
 
